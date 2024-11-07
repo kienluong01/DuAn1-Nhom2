@@ -7,10 +7,14 @@ require_once '../commons/function.php'; // Hàm hỗ trợ
 // Require toàn bộ file Controllers
 require_once './controllers/AdminDanhMucController.php';
 require_once './controllers/AdminSanPhamController.php';
+require_once './controllers/AdminTaiKhoanController.php';
+require_once './controllers/AdminDonHangController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminSanPham.php';
 require_once './models/AdminDanhMuc.php';
+require_once './models/AdminTaiKhoan.php';
+require_once './models/AdminDonHang.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -25,4 +29,46 @@ match ($act) {
      'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
      'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
      'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
+    
+   
+
+
+
+   // route quản lý đơn hàng
+   'don-hang' =>(new AdminDonHangController())->danhSachDonHang(),
+//    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+//    'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+//      'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+//    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+
+ 
+     
+
+   
+
+      
+
+   
+
+     // route quản lý tài khoản
+     // Quản lý tài khoản quản trị
+     'list-tai-khoan-quan-tri' =>(new AdminTaiKhoanController())->danhSachQuanTri(),
+     'form-them-quan-tri' =>(new AdminTaiKhoanController())->formAddQuanTri(),
+     'them-quan-tri' =>(new AdminTaiKhoanController())->postAddQuanTri(),
+     'form-sua-quan-tri' =>(new AdminTaiKhoanController())->formEditQuanTri(),
+     'sua-quan-tri' =>(new AdminTaiKhoanController())->postEditQuanTri(),
+
+
+      // route resert password tài khoản
+     'resert-password' =>(new AdminTaiKhoanController())->resertPassword(),
+
+     // route quản lý tài khoản khách hàng
+     'list-tai-khoan-khach-hang' =>(new AdminTaiKhoanController())->danhSachKhachHang(),
+     'form-sua-khach-hang' =>(new AdminTaiKhoanController())->formEditKhachHang(),
+     'sua-khach-hang' =>(new AdminTaiKhoanController())->postEditKhachHang(),
+     'chi-tiet-khach-hang' =>(new AdminTaiKhoanController())->detailKhachHang(),
+
+
+
+     default => 'Trang không tồn tại', 
 };
