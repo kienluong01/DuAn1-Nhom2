@@ -12,9 +12,13 @@ require_once './controllers/AdminDonHangController.php';
 
 // Require toàn bộ file Models
 require_once './models/AdminSanPham.php';
+<<<<<<< HEAD
 require_once './models/AdminDanhMuc.php';
 require_once './models/AdminTaiKhoan.php';
 require_once './models/AdminDonHang.php';
+=======
+require_once './models/AdminDanhMuc.php'; 
+>>>>>>> f77c45ed31495c0404f484f2b92805e767ecf052
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -29,6 +33,7 @@ match ($act) {
      'form-sua-danh-muc' => (new AdminDanhMucController())->formEditDanhMuc(),
      'sua-danh-muc' => (new AdminDanhMucController())->postEditDanhMuc(),
      'xoa-danh-muc' => (new AdminDanhMucController())->deleteDanhMuc(),
+<<<<<<< HEAD
     
    
 
@@ -71,4 +76,16 @@ match ($act) {
 
 
      default => 'Trang không tồn tại', 
+=======
+
+      // route sản phẩm
+    'san-pham'=> (new AdminSanPhamController())->danhSachSanPham(),
+    'form-them-san-pham'=> (new AdminSanPhamController())->formAddSanPham(),
+    'them-san-pham'=> (new AdminSanPhamController())->postAddSanPham(),
+    'form-sua-san-pham'=> (new AdminSanPhamController())->formEditSanPham(),
+    'sua-san-pham'=> (new AdminSanPhamController())->postEditSanPham(), 
+    'sua-album-anh-san-pham'=> (new AdminSanPhamController())->postEditAnhSanPham(), 
+    'xoa-san-pham'=> (new AdminSanPhamController())->deleteSanPham(),
+     'chi-tiet-san-pham'=> (new AdminSanPhamController())->detailSanPham(),
+>>>>>>> f77c45ed31495c0404f484f2b92805e767ecf052
 };
