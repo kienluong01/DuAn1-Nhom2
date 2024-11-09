@@ -20,7 +20,7 @@ include './views/layout/sidebar.php';
           <div class="container-fluid">
                <div class="row mb-2">
                     <div class="col-sm-6">
-                         <h1> ?></h1>
+                         <h1> </h1>
                     </div>
                </div>
           </div><!-- /.container-fluid -->
@@ -42,7 +42,7 @@ include './views/layout/sidebar.php';
                                    <div class="card-body">
 
                                    <div class="form-group">
-                                   <label>Tên sản phẩm</label>
+                                   <label>Tên khách hàng</label>
                                   <input type="text" class="form-control" name="ho_ten" value="<?= $khachHang['ho_ten'] ?>" placeholder="Nhập họ tên">
                                    <?php if (isset($_SESSION['errors']['ho_ten'])) { ?>
                                     <p class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?></p>

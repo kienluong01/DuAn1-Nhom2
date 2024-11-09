@@ -81,9 +81,12 @@
                 <label for="inputStatus">Trạng thái đơn hàng</label>
                 <select id="inputStatus" name="trang_thai_id" class="form-control custom-select">
                   <?php foreach ($listTrangThaiDonHang as $trangThai) { ?>
-                    <option <?= $trangThai['id'] < $donHang['trang_thai_id'] ? 'disabled' : '' ?> <?= $trangThai['id'] == $donHang['trang_thai_id'] ? 'selected' : '' ?> value="<?= $trangThai['id'] ?>">
-                      <?= $trangThai['ten_trang_thai'] ?>
-                    </option>
+                    <option <?= $trangThai['id'] > $donHang['trang_thai_id'] ? '' : 'disabled' ?> 
+        <?= $trangThai['id'] == $donHang['trang_thai_id'] ? 'selected' : '' ?> 
+        value="<?= $trangThai['id'] ?>">
+  <?= $trangThai['ten_trang_thai'] ?>
+</option>
+
                   <?php } ?>
                 </select>
                 <?php if (isset($_SESSION['errors']['trang_thai'])) { ?>

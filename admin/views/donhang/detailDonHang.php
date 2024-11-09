@@ -56,7 +56,7 @@ if (isset($donHang['trang_thai_id'])) {
                         <div class="row">
                             <div class="col-12">
                                 <h4>
-                                    <i class="fas fa-cat"></i> Shop thú cưng
+                                    <i ></i> Shop thực phẩm
                                     <small class="float-right">Ngày đặt: <?= formatDate($donHang['ngay_dat']);?></small>
                                 </h4>
                             </div>

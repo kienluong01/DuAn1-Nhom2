@@ -19,6 +19,7 @@ require_once './models/AdminDanhMuc.php';
 
 
 // Route
+
 $act = $_GET['act'] ?? '/';
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
@@ -42,17 +43,21 @@ match ($act) {
     'xoa-san-pham'=> (new AdminSanPhamController())->deleteSanPham(),
      'chi-tiet-san-pham'=> (new AdminSanPhamController())->detailSanPham(),
 
-    
+    // route bình luận
+   'update-trang-thai-binh-luan' => (new AdminSanPhamController())->updateTrangThaiBinhLuan(),
+   'xoa-binh-luan' => (new AdminSanPhamController())->xoaBinhLuan(),
+   'xoa-binh-luan-khach-hang' => (new AdminSanPhamController())->xoaBinhLuanKhachHang(),
+
    
 
 
 
    // route quản lý đơn hàng
    'don-hang' =>(new AdminDonHangController())->danhSachDonHang(),
-//    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
-//    'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
-//      'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
-//    'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+   'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
+   'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
+     'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
+
 
  
      
@@ -81,6 +86,13 @@ match ($act) {
      'sua-khach-hang' =>(new AdminTaiKhoanController())->postEditKhachHang(),
      'chi-tiet-khach-hang' =>(new AdminTaiKhoanController())->detailKhachHang(),
 
+       // route quản lý tài khoản cá nhân (quản trị)
+    // 'form-sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController)->formEditCaNhanQuanTri(),
+    // 'sua-thong-tin-ca-nhan-quan-tri' => (new AdminTaiKhoanController)->postEditCaNhanQuanTri(),
+
+    // 'sua-mat-khau-ca-nhan-quan-tri' => (new AdminTaiKhoanController)->postEditMatKhauCaNhan(),
+    // 'sua-anh-tai-khoan' => (new AdminTaiKhoanController)->suaAnhTaiKhoanAdmin(),
+
 
 
      default => 'Trang không tồn tại', 
@@ -89,3 +101,4 @@ match ($act) {
 
 
 };
+
