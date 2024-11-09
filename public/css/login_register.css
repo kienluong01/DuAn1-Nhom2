@@ -1,0 +1,147 @@
+:root {
+     --main-color: rgb(52, 149, 56);
+     --mau-nhan: rgb(255, 120, 0);
+     --des-color: rgb(101, 101, 101);
+     --text-color: rgb(22, 22, 22);
+     --white-color: #fff;
+     --sale-color: #ff3434;
+}
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     color: var(--text-color);
+}
+main {
+     margin-top: 3rem;
+     height: auto;
+}
+
+.banner-title-login {
+     width: 120rem;
+     height: 10rem;
+     margin: 0 auto;
+     position: relative;
+}
+.banner-title-login img {
+     width: 100%;
+     border-radius: 0 5rem 0 5rem;
+}
+.breadcrumb-login {
+     position: absolute;
+     top: 2.5rem;
+     left: 50%;
+     transform: translateX(-50%);
+     color: var(--white-color);
+}
+.breadcrumb-login a {
+     color: var(--white-color);
+     font-size: 1.6rem;
+     padding: 1rem;
+}
+.breadcrumb-login a:last-child {
+     color: var(--main-color);
+}
+.title-login {
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     color: var(--white-color);
+     bottom: 0.5rem;
+     font-size: 2.5rem;
+     font-weight: bold;
+}
+.title-login p {
+     color: var(--white-color);
+}
+.content-login {
+     margin: 5rem 0 3rem 0;
+}
+.content-login form {
+     width: 50%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto;
+}
+.content-login form h1 {
+     font-size: 4rem;
+}
+.content-login form .desc-login {
+     font-size: 1.6rem;
+     margin-bottom: 2rem;
+}
+.content-login form .desc-login a {
+     color: var(--main-color);
+}
+.content-login form input {
+     border: 0.1rem solid #ccc;
+     padding-left: 1.5rem;
+     width: 38.5rem;
+     height: 4.5rem;
+     margin-bottom: 1rem;
+}
+.content-login form input:focus {
+     outline: none;
+     border-width: 0.2rem;
+     border-color: var(--main-color);
+}
+.content-login form input::placeholder {
+     padding-left: 1.5rem;
+     font-size: 1.6rem;
+}
+.content-login form .btn-login {
+     margin-top: 2rem;
+     width: 38.5rem;
+     height: 4.5rem;
+     border: none;
+     font-size: 1.6rem;
+     font-weight: bold;
+     background-color: var(--main-color);
+     color: var(--white-color);
+}
+.content-login form .btn-login:hover {
+     cursor: pointer;
+     background-color: var(--mau-nhan);
+     color: var(--white-color);
+}
+.alternate-login {
+     text-align: center;
+}
+.forgot-password a,
+.forgot-password,
+.alternate-login p {
+     margin-top: 1.5rem;
+     font-size: 1.6rem;
+}
+.forgot-password a:hover {
+     color: var(--main-color);
+     cursor: pointer;
+}
+.alternate-login button {
+     margin-top: 2rem;
+     width: 19rem;
+     height: 5rem;
+}
+.alternate-login button span {
+     color: var(--white-color);
+     font-size: 1.6rem;
+     font-weight: 400;
+}
+.alternate-login .fab {
+     margin-right: 2rem;
+     font-size: 2.5rem;
+     color: var(--white-color);
+}
+.alternate-login button:hover {
+     cursor: pointer;
+}
+.alternate-login .login-facebook {
+     border: none;
+     background-color: blue;
+}
+.alternate-login .login-google {
+     border: none;
+     background-color: red;
+}
