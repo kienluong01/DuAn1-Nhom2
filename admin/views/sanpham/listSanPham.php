@@ -1,47 +1,6 @@
 
 
 <!-- Header  -->
- <?php  require_once './views/layout/header.php'; ?>
-  <!-- Navbar -->
-  <?php include './views/layout/navbar.php'; ?>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-   <?php include './views/layout/sidebar.php'; ?>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Quản lí danh sách thực phẩm</h1>
-          </div>
-          
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-
-
-            <div class="card">
-              <div class="card-header">
-                <a href="<?=BASE_URL_ADMIN .'?act=form-them-san-pham' ?>">
-                  <button class="btn btn-success">Thêm thực phẩm mới</button>
-                </a>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-
-<!-- Header  -->
 <?php require_once './views/layout/header.php'; ?>
 <!-- Navbar -->
 <?php include './views/layout/navbar.php'; ?>
@@ -81,7 +40,7 @@
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
->>>>>>> 797e4c50475b49d777da3f5b7072254dadd29f10
+
                   <tr>
                     <th>STT</th>
                     <th>Tên sản phẩm</th>
@@ -129,7 +88,6 @@
                   <tfoot>
                     <tr>
                      <th>STT</th>
-=======
                 </thead>
                 <tbody>
                   <?php foreach ($listSanPham as $key => $sanPham): ?>
@@ -236,7 +194,7 @@ include './views/layout/footer.php';
       "responsive": true,
       "lengthChange": false,
       "autoWidth": false,
->>>>>>> 797e4c50475b49d777da3f5b7072254dadd29f10
+
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
@@ -291,7 +249,6 @@ include './views/layout/footer.php';
 </script>
 </body>
 </html>
-=======
   // <![CDATA[  <-- For SVG support
   if ('WebSocket' in window) {
     (function() {

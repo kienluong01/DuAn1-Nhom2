@@ -38,3 +38,12 @@ function deleteSessionErrors() {
 function formatDate($date) {
     echo date("d-m-Y", strtotime($date));
 }
+function checkLoginAdmin()
+{
+    if (!isset($_SESSION['user_admin'])) {
+        //không có session thì redirect về trang login
+        // header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+        require_once './views/auth/formLogin.php';
+        exit();
+    }
+}
