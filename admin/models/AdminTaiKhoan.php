@@ -1,15 +1,18 @@
 <?php
-class AdminTaiKhoan {
+class AdminTaiKhoan
+{
     public $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->conn = connectDB();
     }
 
-    public function getAllTaiKhoan($chuc_vu_id) {
+    public function getAllTaiKhoan($chuc_vu_id)
+    {
         try {
             $sql = 'SELECT * FROM tai_khoans WHERE chuc_vu_id = :chuc_vu_id;';
-            $stmt = $this->conn->prepare($sql);  
+            $stmt = $this->conn->prepare($sql);
             $stmt->execute([':chuc_vu_id' => $chuc_vu_id]);
             return $stmt->fetchAll();
         } catch (Exception $e) {
@@ -17,28 +20,30 @@ class AdminTaiKhoan {
         }
     }
 
-    
 
-    public function insertTaiKhoan($ho_ten,$email,$password,$chuc_vu_id){
-        try{
+
+    public function insertTaiKhoan($ho_ten, $email, $password, $chuc_vu_id)
+    {
+        try {
             $sql = "INSERT INTO tai_khoans (ho_ten,email,mat_khau,chuc_vu_id) VALUES (:ho_ten, :email, :password, :chuc_vu_id)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(
                 [
                     ':ho_ten' => $ho_ten,
                     ':email' => $email,
-                    'password' => $password,
-                    'chuc_vu_id' => $chuc_vu_id
+                    ':password' => $password,
+                    ':chuc_vu_id' => $chuc_vu_id
                 ]
             );
-            
+
             return true;
-        }catch(Exception $e){
-            echo "Lỗi: ".$e->getMessage();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
         }
     }
 
-    public function getDetailTaiKhoan($id) {
+    public function getDetailTaiKhoan($id)
+    {
         try {
             $sql = 'SELECT * FROM tai_khoans WHERE id = :id';
             $stmt = $this->conn->prepare($sql);
@@ -49,7 +54,8 @@ class AdminTaiKhoan {
         }
     }
 
-    public function updateTaiKhoan($id, $ho_ten, $email, $so_dien_thoai, $trang_thai) {
+    public function updateTaiKhoan($id, $ho_ten, $email, $so_dien_thoai, $trang_thai)
+    {
         try {
             $sql = 'UPDATE tai_khoans 
             SET 
@@ -72,7 +78,8 @@ class AdminTaiKhoan {
         }
     }
 
-    public function resertPassword($id, $password) {
+    public function resertPassword($id, $password)
+    {
         try {
             $sql = "UPDATE tai_khoans SET mat_khau = :mat_khau WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
@@ -86,7 +93,8 @@ class AdminTaiKhoan {
         }
     }
 
-    public function updateKhachHang($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai) {
+    public function updateKhachHang($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai)
+    {
         try {
             $sql = "UPDATE tai_khoans SET ho_ten = :ho_ten, email = :email, so_dien_thoai = :so_dien_thoai, ngay_sinh = :ngay_sinh, gioi_tinh = :gioi_tinh, dia_chi = :dia_chi, trang_thai = :trang_thai WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
@@ -105,6 +113,7 @@ class AdminTaiKhoan {
             echo "Lỗi: " . $e->getMessage();
         }
     }
+
     public function checkLogin($email,$mat_khau){
         try{
             $sql = " SELECT * FROM tai_khoans WHERE email=:email";
@@ -182,5 +191,6 @@ class AdminTaiKhoan {
         }
     }
 
+
+
 }
-?>
