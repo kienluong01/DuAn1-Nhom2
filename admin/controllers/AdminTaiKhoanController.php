@@ -35,8 +35,6 @@ class AdminTaiKhoanController
             $email = $_POST['email'];
             // var_dump($_POST);
             // die;
-
-
             // Tạo 1 mảng trống để chứa dl
             $errors = [];
             if (empty($ho_ten)) {
@@ -55,7 +53,8 @@ class AdminTaiKhoanController
                 $chuc_vu_id = 1;
 
                 $this->modelTaiKhoan->insertTaiKhoan($ho_ten, $email, $password, $chuc_vu_id);
-                // var_dump($email); die();
+                // var_dump($email);
+                // die();
 
                 header("Location: " . BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri');
                 exit();
@@ -285,7 +284,7 @@ class AdminTaiKhoanController
             $user  = $this->modelTaiKhoan->getTaiKhoanformEmail($_SESSION['user_admin']);
 
             $checkPass = password_verify($old_pass, $user['mat_khau']);
-            
+
             //var_dump('ok');die();
             $errors = [];
             if (!$checkPass) {
@@ -311,7 +310,7 @@ class AdminTaiKhoanController
             $_SESSION['errors'] = $errors;
             if (!$errors) {
                 $hashPass = password_hash($new_pass, PASSWORD_BCRYPT);
-                $status = $this->modelTaiKhoan->resetPassword($user['id'], $hashPass);
+                $status = $this->modelTaiKhoan->resertPassword($user['id'], $hashPass);
                 if ($status) {
                     $_SESSION['success'] = "Đã đổi mật khẩu thành công";
                     $_SESSION['flash'] = true;
@@ -385,8 +384,6 @@ class AdminTaiKhoanController
                 exit();
             }
         }
-        
-
     }
     public function suaAnhTaiKhoanAdmin()
     {
@@ -435,6 +432,4 @@ class AdminTaiKhoanController
             }
         }
     }
-
-   
 }

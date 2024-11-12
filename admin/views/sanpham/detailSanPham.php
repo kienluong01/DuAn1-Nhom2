@@ -86,30 +86,31 @@ include './views/layout/sidebar.php';
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Nguyễn Lương Kiên</td>
-                  <td>Ngon quá xá, ăn quá đã</td>
-                  <td>20/03/2024</td>
-                  <td>
-                    <div class="btn-group">
-                      <a href="#"><button class="btn btn-warning">Ẩn</button></a>
-                      <a href="#"><button class="btn btn-danger">Xóa</button></a>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Nguyễn Lương Kiên</td>
-                  <td>Ngon quá xá, ăn quá đã</td>
-                  <td>20/03/2024</td>
-                  <td>
-                    <div class="btn-group">
-                      <a href="#"><button class="btn btn-warning">Ẩn</button></a>
-                      <a href="#"><button class="btn btn-danger">Xóa</button></a>
-                    </div>
-                  </td>
-                </tr>
+              </form>
+              <?php foreach ($listBinhLuan as $key => $binhLuan) { ?>
+                          <tr>
+                            <td><?= $key + 1 ?></td>
+                            <td><a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $binhLuan['tai_khoan_id'] ?>"><?= $binhLuan['ho_ten'] ?></a></td>
+                            <td><?= $binhLuan['noi_dung'] ?></td>
+                            <td><?= $binhLuan['ngay_dang'] ?></td>
+                            <td>
+                              <form action="<?= BASE_URL_ADMIN . '?act=xoa-binh-luan' ?>" method="POST">
+                                <input type="hidden" name="id_binh_luan" value="<?= $binhLuan['id'] ?>">
+       
+                                    <button class="btn btn-danger" type="submit" onclick="return confirm('Bạn có muốn xóa bình luận này không?')">
+                                      Xóa
+                                    </button>
+                                    
+                                  </a>
+                                 
+
+                                </div>
+
+                              </form>
+
+                            </td>
+                          </tr> 
+                        <?php } ?>
               </tbody>
             </table>
           </div>

@@ -1,13 +1,13 @@
 <footer class="main-footer">
-  <div class="float-right d-none d-sm-block">
-    By <b>KienLuong</b>
-  </div>
-  <strong>Website Bán Thực Phẩm Sạch Dola Organic </strong>
+     <div class="float-right d-none d-sm-block">
+          By <b>KKT</b>
+     </div>
+     <strong>Website Bán Thực Phẩm Sạch KKT </strong>
 </footer>
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">
-  <!-- Control sidebar content goes here -->
+     <!-- Control sidebar content goes here -->
 </aside>
 <!-- /.control-sidebar -->
 </div>
