@@ -232,7 +232,6 @@ class AdminSanPham
                 INNER JOIN san_phams ON binh_luans.san_pham_id = san_phams.id
                 WHERE binh_luans.tai_khoan_id = :id
                 ';
-
             $stmt = $this->conn->prepare($sql);
 
             $stmt->execute([':id' => $id]);
