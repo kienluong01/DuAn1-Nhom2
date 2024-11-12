@@ -190,6 +190,29 @@ class AdminTaiKhoan
             echo "Lỗi: ".$e->getMessage();
         }
     }
+    public function updateAnhDaiDienAdmin($id, $anh_dai_dien){
+
+        try{
+            $sql = "UPDATE tai_khoans 
+                    SET 
+                    anh_dai_dien = :anh_dai_dien
+                    WHERE id = :id
+
+                                        ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute(
+                [
+                    ':anh_dai_dien' => $anh_dai_dien,
+                    ':id' => $id
+                ]
+            );
+            
+            // Lấy id sản phẩm vừa thêm
+            return true;
+        }catch(Exception $e){
+            echo "Lỗi: ".$e->getMessage();
+        }
+    }
 
 
 
