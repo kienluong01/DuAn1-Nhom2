@@ -285,7 +285,7 @@ class AdminTaiKhoanController
             $user  = $this->modelTaiKhoan->getTaiKhoanformEmail($_SESSION['user_admin']);
 
             $checkPass = password_verify($old_pass, $user['mat_khau']);
-            
+
             //var_dump('ok');die();
             $errors = [];
             if (!$checkPass) {
@@ -311,7 +311,7 @@ class AdminTaiKhoanController
             $_SESSION['errors'] = $errors;
             if (!$errors) {
                 $hashPass = password_hash($new_pass, PASSWORD_BCRYPT);
-                $status = $this->modelTaiKhoan->resetPassword($user['id'], $hashPass);
+                $status = $this->modelTaiKhoan->resertPassword($user['id'], $hashPass);
                 if ($status) {
                     $_SESSION['success'] = "Đã đổi mật khẩu thành công";
                     $_SESSION['flash'] = true;
@@ -385,8 +385,6 @@ class AdminTaiKhoanController
                 exit();
             }
         }
-        
-
     }
     public function suaAnhTaiKhoanAdmin()
     {
@@ -435,6 +433,4 @@ class AdminTaiKhoanController
             }
         }
     }
-
-   
 }

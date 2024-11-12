@@ -326,6 +326,8 @@ class AdminSanPhamController
     }
 
 
+
+
     // public function updateTrangThaiBinhLuan()
     // {
     //     //  var_dump($_POST);die();

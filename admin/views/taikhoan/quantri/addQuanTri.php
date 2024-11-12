@@ -40,21 +40,23 @@ include './views/layout/sidebar.php';
                               <form action="<?= BASE_URL_ADMIN . '?act=them-quan-tri' ?>" method="POST">
                                    <div class="card-body">
 
-                                   <div class="form-group">
-                                   <label>Họ tên</label>
-                                  <input type="text" class="form-control" name="ho_ten" placeholder="Nhập họ tên">
-                                   <?php if (isset($_SESSION['errors']['ho_ten'])) { ?>
-                                    <p class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?></p>
-                                   <?php } ?>
-                                   </div>
+                                        <div class="form-group">
+                                             <label>Họ tên</label>
+                                             <input type="text" class="form-control" name="ho_ten"
+                                                  placeholder="Nhập họ tên">
+                                             <?php if (isset($_SESSION['errors']['ho_ten'])) { ?>
+                                                  <p class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?></p>
+                                             <?php } ?>
+                                        </div>
 
-                                   <div class="form-group">
-                                   <label>Email</label>
-                                  <input type="email" class="form-control" name="email" placeholder="Nhập email">
-                                   <?php if (isset($_SESSION['errors']['email'])) { ?>
-                                    <p class="text-danger"><?= $_SESSION['errors']['email'] ?></p>
-                                   <?php } ?>
-                                   </div>
+                                        <div class="form-group">
+                                             <label>Email</label>
+                                             <input type="email" class="form-control" name="email"
+                                                  placeholder="Nhập email">
+                                             <?php if (isset($_SESSION['errors']['email'])) { ?>
+                                                  <p class="text-danger"><?= $_SESSION['errors']['email'] ?></p>
+                                             <?php } ?>
+                                        </div>
 
                                    </div>
 

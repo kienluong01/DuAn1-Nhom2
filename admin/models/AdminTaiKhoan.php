@@ -114,8 +114,9 @@ class AdminTaiKhoan
         }
     }
 
-    public function checkLogin($email,$mat_khau){
-        try{
+    public function checkLogin($email, $mat_khau)
+    {
+        try {
             $sql = " SELECT * FROM tai_khoans WHERE email=:email";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(
@@ -123,30 +124,30 @@ class AdminTaiKhoan
                     ':email' => $email,
                 ]
             );
-            $user= $stmt->fetch();
+            $user = $stmt->fetch();
 
-            if($user && password_verify($mat_khau,$user['mat_khau'])){
-                if($user['chuc_vu_id']==1){ //ADMIN
-                   if( $user['trang_thai']==1){
+            if ($user && password_verify($mat_khau, $user['mat_khau'])) {
+                if ($user['chuc_vu_id'] == 1) { //ADMIN
+                    if ($user['trang_thai'] == 1) {
                         return $user['email']; // thanh cong
-                   }else {
+                    } else {
                         return "Tài khoản bị cấm";
-                   }
-                }else{
-                    
-                        return "Không có quyền đăng nhập";
+                    }
+                } else {
+
+                    return "Không có quyền đăng nhập";
                 }
-            }else{
+            } else {
                 return 'Vui lòng kiểm tra lại thông tin đăng nhập';
             }
-    
-        }catch(Exception $e){
-            echo "Lỗi: ".$e->getMessage();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
             return  false;
         }
     }
-    public function getTaiKhoanformEmail($email){
-        try{
+    public function getTaiKhoanformEmail($email)
+    {
+        try {
             $sql = "SELECT * FROM tai_khoans WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(
@@ -155,15 +156,16 @@ class AdminTaiKhoan
                 ]
             );
             return $stmt->fetch();
-        }catch(Exception $e){
-            echo "Lỗi: ".$e->getMessage();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
         }
     }
 
-   
-     public function updateTaiKhoanCaNhan($id,$ho_ten,$email,$so_dien_thoai,$dia_chi){
 
-        try{
+    public function updateTaiKhoanCaNhan($id, $ho_ten, $email, $so_dien_thoai, $dia_chi)
+    {
+
+        try {
             $sql = "UPDATE tai_khoans 
                     SET 
                     ho_ten = :ho_ten,
@@ -183,14 +185,11 @@ class AdminTaiKhoan
                     ':id' => $id
                 ]
             );
-            
+
             // Lấy id sản phẩm vừa thêm
             return true;
-        }catch(Exception $e){
-            echo "Lỗi: ".$e->getMessage();
+        } catch (Exception $e) {
+            echo "Lỗi: " . $e->getMessage();
         }
     }
-
-
-
 }

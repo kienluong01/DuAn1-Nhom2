@@ -3,7 +3,7 @@
   <a href="../../index3.html" class="brand-link">
     <img src="./assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
       style="opacity: .8">
-    <span class="brand-text font-weight-light">KienLuong</span>
+    <span class="brand-text font-weight-light">Kien Kiet</span>
   </a>
 
   <!-- Sidebar -->
@@ -20,7 +20,8 @@
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+        data-accordion="false">
         <li class="nav-item">
           <a href="../widgets.html" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -47,8 +48,8 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?=BASE_URL_ADMIN .'?act=don-hang'?>" class="nav-link">
-          <i class=" nav-icon fas fa-shopping-bag"></i>
+          <a href="<?= BASE_URL_ADMIN . '?act=don-hang' ?>" class="nav-link">
+            <i class=" nav-icon fas fa-shopping-bag"></i>
             <p>
               Đơn hàng
             </p>
@@ -64,23 +65,24 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-           <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri' ?>" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>Tài khoản quản trị</p>
-           </a>
+              <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri' ?>" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>Tài khoản quản trị</p>
+              </a>
             </li>
 
 
             <li class="nav-item">
-           <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang' ?>" class="nav-link">
-            <i class="nav-icon fas fa-user"></i>
-            <p>Tài khoản khách hàng</p>
-           </a>
+              <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang' ?>" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>Tài khoản khách hàng</p>
+              </a>
             </li>
 
 
             <li class="nav-item">
-              <a href="<?=BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri'?>" class="nav-link">
+              <a href="<?= BASE_URL_ADMIN . '?act=form-sua-thong-tin-ca-nhan-quan-tri' ?>"
+                class="nav-link">
                 <i class="nav-icon far fa-user"></i>
                 <p>Tài khoản cá nhân</p>
               </a>
