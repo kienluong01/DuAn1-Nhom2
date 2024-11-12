@@ -23,10 +23,10 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
         data-accordion="false">
         <li class="nav-item">
-          <a href="../widgets.html" class="nav-link">
+          <a href="<?= BASE_URL_ADMIN ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
-              Dashboard
+              Trang chủ
             </p>
           </a>
         </li>

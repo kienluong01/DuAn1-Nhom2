@@ -25,7 +25,7 @@ class AdminTaiKhoan
     public function insertTaiKhoan($ho_ten, $email, $password, $chuc_vu_id)
     {
         try {
-            $sql = "INSERT INTO tai_khoans (ho_ten,email,mat_khau,chuc_vu_id) VALUES (:ho_ten, :email, :password, :chuc_vu_id)";
+            $sql = 'INSERT INTO tai_khoans (ho_ten, email, mat_khau, chuc_vu_id) VALUES (:ho_ten, :email, :password, :chuc_vu_id)';
             $stmt = $this->conn->prepare($sql);
             $stmt->execute(
                 [

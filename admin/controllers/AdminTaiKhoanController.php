@@ -35,8 +35,6 @@ class AdminTaiKhoanController
             $email = $_POST['email'];
             // var_dump($_POST);
             // die;
-
-
             // Tạo 1 mảng trống để chứa dl
             $errors = [];
             if (empty($ho_ten)) {
@@ -55,7 +53,8 @@ class AdminTaiKhoanController
                 $chuc_vu_id = 1;
 
                 $this->modelTaiKhoan->insertTaiKhoan($ho_ten, $email, $password, $chuc_vu_id);
-                // var_dump($email); die();
+                // var_dump($email);
+                // die();
 
                 header("Location: " . BASE_URL_ADMIN . '?act=list-tai-khoan-quan-tri');
                 exit();
