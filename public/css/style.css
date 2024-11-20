@@ -132,11 +132,16 @@ html {
      cursor: pointer;
 }
 .header-search input {
-     width: 40rem;
+     width: 20rem;
      height: 3.5rem;
      border-radius: 0.5rem;
      border: none;
      outline: none;
+     transition: all 0.3s ease-in-out;
+}
+.header-search input:focus {
+     width: 40rem;
+     transition: all 0.3s ease-in-out;
 }
 .header-search input::placeholder {
      color: var(--main-color);
@@ -155,10 +160,29 @@ html {
 }
 .home-banner .banner {
      z-index: -1;
-     background: url(../img/slider_1.webp) no-repeat center/cover;
+     background: url(../img/slider_home.webp) no-repeat center/cover;
      width: 100%;
      height: 75rem;
      border-radius: 0.8rem;
+}
+.button-controll-offers {
+     display: flex;
+     width: 100%;
+     justify-content: space-between;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+}
+.button-controll-offers button {
+     margin: 0 2rem;
+     border: none;
+     background-color: var(--white-color);
+}
+.button-controll-offers i {
+     font-size: 5rem;
+}
+.button-controll-offers i:hover {
+     cursor: pointer;
 }
 .button-banner {
      position: absolute;
@@ -168,11 +192,12 @@ html {
      font-size: 2rem;
      font-weight: bold;
      border-radius: 0.5rem;
-     border: none;
+     border: 0.1rem solid var(--main-color);
      color: var(--main-color);
 }
 .button-banner:hover {
      color: var(--white-color);
+     border: none;
      background-color: var(--mau-nhan);
      cursor: pointer;
 }
@@ -256,14 +281,35 @@ html {
 .item-title-offers i {
      color: var(--mau-nhan);
 }
+#formList {
+     width: 119rem;
+     max-width: 100%;
+     overflow: auto;
+     margin: 0 auto;
+     scroll-behavior: smooth;
+     scroll-snap-type: both;
+}
+#formList::-webkit-scrollbar {
+     display: none;
+}
+#list {
+     width: max-content;
+}
+#list .item {
+     overflow: hidden;
+     transition: 0.5s;
+     /* margin: 10px; */
+     scroll-snap-align: start;
+}
 .list-offers {
      display: flex;
      justify-content: center;
      gap: 2rem;
      position: relative;
-     top: 50%;
+     margin-top: 10rem;
+     /* top: -50%;
      left: 50%;
-     transform: translate(-50%, -50%);
+     transform: translate(-50%, -50%); */
 }
 .product {
      width: 21.8rem;
@@ -473,7 +519,7 @@ html {
      width: 90%;
      height: 22rem;
      border-radius: 2rem;
-     background: url(../img/bg_delivery_express2.webp) no-repeat center/cover;
+     background: url(../img/Group\ 178.png) no-repeat center/cover;
      margin: 2rem auto;
 }
 .news {

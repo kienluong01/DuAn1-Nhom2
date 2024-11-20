@@ -28,6 +28,8 @@ class AdminSanPhamController
         //Kiểm tra xem dữ liệu có phải được submit lên không
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Lấy ra dữ liệu
+            // var_dump($_POST);
+            // die();
             $ten_san_pham = $_POST['ten_san_pham'] ?? '';
             $gia_san_pham = $_POST['gia_san_pham'] ?? '';
             $gia_khuyen_mai = $_POST['gia_khuyen_mai'] ?? '';
@@ -85,6 +87,8 @@ class AdminSanPhamController
                     $mo_ta,
                     $file_thumb
                 );
+                // var_dump($san_pham_id);
+                // die;
 
                 //Xử lý thêm album vào sản phẩm img_array
                 if (!empty($img_array['name'])) {

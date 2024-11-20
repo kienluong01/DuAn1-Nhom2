@@ -1,0 +1,83 @@
+:root {
+     --main-color: rgb(52, 149, 56);
+     --mau-nhan: rgb(255, 120, 0);
+     --des-color: rgb(101, 101, 101);
+     --text-color: rgb(22, 22, 22);
+     --white-color: #fff;
+     --sale-color: #ff3434;
+}
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     color: var(--text-color);
+}
+
+main {
+     margin: 3rem;
+     height: auto;
+}
+.banner-title-contact {
+     width: 120rem;
+     height: 10rem;
+     margin: 0 auto;
+     position: relative;
+}
+.banner-title-contact img {
+     width: 100%;
+     border-radius: 0 5rem 0 5rem;
+}
+.breadcrumb-contact {
+     position: absolute;
+     top: 2.5rem;
+     left: 50%;
+     transform: translateX(-50%);
+     color: var(--white-color);
+}
+.breadcrumb-contact a {
+     color: var(--white-color);
+     font-size: 1.6rem;
+     padding: 1rem;
+}
+.breadcrumb-contact a:last-child {
+     color: var(--main-color);
+}
+.title-contact {
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     color: var(--white-color);
+     bottom: 0.5rem;
+     font-size: 2.5rem;
+     font-weight: bold;
+}
+.title-contact p {
+     color: var(--white-color);
+}
+.contact-content {
+     width: 70%;
+     margin: 7rem auto;
+     display: flex;
+     justify-content: space-around;
+     text-align: center;
+}
+.contact-content div {
+     width: calc(100% / 3);
+}
+.contact-content i {
+     font-size: 5rem;
+     color: var(--main-color);
+}
+.contact-content p {
+     margin-top: 1.5rem;
+     font-size: 1.6rem;
+     font-weight: 500;
+}
+.contact-content .last {
+     margin-top: 2rem;
+     color: var(--des-color);
+}
+.map {
+     display: flex;
+     justify-content: center;
+}
