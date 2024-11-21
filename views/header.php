@@ -7,6 +7,8 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
      <link rel="stylesheet" href="../public/css/style.css" />
      <link rel="stylesheet" href="../public/css/contact.css" />
+     <link rel="stylesheet" href="../public/css/pay.css">
+     <link rel="stylesheet" href="../public/css/cart.css">
      <link rel="stylesheet" href="../public/css/login_register.css">
      <link rel="preconnect" href="https://fonts.googleapis.com" />
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,10 +29,12 @@
                          <i class="fas fa-map-marker-alt"></i>
                          <span>Cửa hàng gần bạn</span>
                     </div>
-                    <div class="item header-cart">
-                         <i class="fas fa-shopping-cart"></i>
-                         <span>Giỏ hàng</span>
-                    </div>
+                    <a href="cart.php">
+                         <div class="item header-cart">
+                              <i class="fas fa-shopping-cart"></i>
+                              <span>Giỏ hàng</span>
+                         </div>
+                    </a>
                     <div class="item header-user">
                          <i class="far fa-user"></i>
                          <span>Tài khoản</span>
