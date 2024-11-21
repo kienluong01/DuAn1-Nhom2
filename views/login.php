@@ -82,14 +82,14 @@
                     </div>
                </section>
                <section class="content-login">
-                    <form action="">
+                    <form action="<?= BASE_URL .'?act=check-login' ?>" method="post">
                          <h1>Đăng nhập</h1>
                          <p class="desc-login">
                               Nếu bạn chưa có tài khoản, đăng kí
                               <a href="#">tại đây</a>
                          </p>
-                         <input type="text" placeholder="Email" /> <br />
-                         <input type="text" placeholder="Mật khẩu" />
+                         <input type="text" placeholder="Email" name="email"/> <br />
+                         <input type="text" placeholder="Mật khẩu" name="password" />
                          <button type="submit" class="btn-login">
                               Đăng nhập
                          </button>
