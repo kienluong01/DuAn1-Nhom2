@@ -11,13 +11,30 @@ require_once './controllers/TaiKhoanController.php';
 
 // Require file models
 require_once './models/TaiKhoan.php';
+require_once './models/SanPham.php';
 
+$act = $_GET['act'] ?? '/';
 
-$act = $_GET['act'] ?? '/';s
+ match ($act) {
+    '/' => (new HomeController())->home(), 
+    'contact'=>(new HomeController())->contact(),   
 
-match ($act){
-    // '/' => (new HomeController())->home(), // trường hợp đặc biệt
-    'login'=> (new TaiKhoanController())->formLogin(),
-    'check-login'=>(new TaiKhoanController())->postLogin(),
+    // GIO HANG
+    
+
+    // LOGIN
+    'login' => (new TaiKhoanController())->formLogin(), 
+    'check-login' => (new TaiKhoanController())->postLogin(), 
+    'form-dang-ki' =>(new TaiKhoanController())->formDangKy(),
+    'dang-ky' =>(new TaiKhoanController())->dangKy(),
+    'logout' =>(new TaiKhoanController())->logout(),
+    'quen-mat-khau' =>(new TaiKhoanController())->quenMatKhau(),
+    'lay-mat-khau' =>(new TaiKhoanController())->layMatKhau(),
+    'quan-ly-tai-khoan' =>(new TaiKhoanController())->suaTaiKhoan(),
+    'sua-thong-tin-ca-nhan' =>(new TaiKhoanController())->suaThongTinCaNhan(),
+    'sua-mat-khau' =>(new TaiKhoanController())->suaMatKhau(),
+    'sua-anh-tai-khoan' =>(new TaiKhoanController())->suaAnhTaiKhoan(),
+    default => 'Action không hợp lệ', // Trường hợp mặc định
 };
+
 

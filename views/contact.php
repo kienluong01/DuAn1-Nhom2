@@ -1,10 +1,10 @@
-<?php include "./header.php" ?>
+<?php require_once "./views/header.php" ?>
 <main>
      <section class="banner-title-contact">
-          <img src="../public/img/bg_breadcrumb.jpg" alt="" />
+          <img src="public/img/bg_breadcrumb.jpg" alt="" />
           <div class="breadcrumb-contact">
-               <a href="home.php">Trang chủ</a> >
-               <a href="contact.php">Liên hệ</a>
+               <a href="<?= BASE_URL . '?act=/' ?>">Trang chủ</a> >
+               <a href="<?= BASE_URL . '?act=contact' ?>">Liên hệ</a>
           </div>
           <div class="title-contact">
                <p>LIÊN HỆ</p>
@@ -37,6 +37,6 @@
                referrerpolicy="no-referrer-when-downgrade"></iframe>
      </section>
 </main>
-<?php include "./footer.php" ?>
+<?php require_once "./views/footer.php" ?>
 
 </html>

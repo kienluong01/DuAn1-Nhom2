@@ -1,52 +1,23 @@
 <?php
 
+
 class HomeController
 {
-    public $modelTaiKhoan;
-    public function __construct()
-    {
-        $this->modelTaiKhoan = new TaiKhoan();
+    public $modelSanPham;
+
+    public function __construct(){
+        $this->modelSanPham = new SanPham();
     }
 
-
-
-    public function formLogin()
+    public function home()
     {
-        require_once './views/login.php';
-        deleteSessionErrors();
+        $listSanPham = $this->modelSanPham->getAllSanPham();
+        require_once './views/home.php';
     }
-    public function login()
+    public function contact()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            $email = $_POST['email'];
-            $password = $_POST['password'];
 
-            // var_dump($password);
-            // die();
-            //Xử lý kiểm tra thông tin đăng nhập
-
-            $user = $this->modelTaiKhoan->checkLogin($email, $password);
-            if ($user == $email) {
-                //trường hợp đăng nhập thành công
-                //lưu thông tin vào session
-                $_SESSION['user_client'] = $user;
-                header('Location: ' . BASE_URL);
-                exit();
-            } else {
-                //Lỗi thì lưu vào session
-                $_SESSION['error'] = $user;
-                // var_dump($_SESSION['error']);
-                // die;
-                $_SESSION['falsh'] = true;  
-
-                header("Location: " . BASE_URL . '?act=login');
-                exit();
-            }
-        }
+        require_once './views/contact.php';
     }
-
-
 }
-
-?>

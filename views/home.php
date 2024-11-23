@@ -1,5 +1,18 @@
- <?php include "./header.php" ?>
+ <?php require_once "./views/header.php" ?>
  <main class="container">
+
+
+ <div class="row">
+          <?php if (isset($_SESSION['thongBao'])): ?>
+    <script type="text/javascript">
+        alert("<?php echo $_SESSION['thongBao']; ?>");
+    </script>
+    <?php unset($_SESSION['thongBao']); // Xóa session thongBao sau khi hiển thị ?>
+<?php endif; ?>
+          </div>
+ 
+
+       
       <section class="home-banner">
            <div class="banner">
                 <!-- <img src="../public/img/slider_home.webp" alt="" /> -->
@@ -11,25 +24,25 @@
       <section class="product-category">
            <div class="category-item">
                 <a href="#">
-                     <img src="../public/img/cate_4.webp" alt="" class="img-category" />
+                     <img src="public/img/cate_4.webp" alt="" class="img-category" />
                      <span class="title-category">Hoa quả</span>
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
-                     <img src="../public/img/cate_5.webp" alt="" class="img-category" />
+                     <img src="public/img/cate_5.webp" alt="" class="img-category" />
                      <span class="title-category">Rau củ</span>
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
-                     <img src="../public/img/seafood.webp" alt="" class="img-category" />
+                     <img src="public/img/seafood.webp" alt="" class="img-category" />
                      <span class="title-category">Thịt tươi sống</span>
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
-                     <img src="../public/img/cate_6.webp" alt="" class="img-category" />
+                     <img src="public/img/cate_6.webp" alt="" class="img-category" />
                      <span class="title-category">Nước ép</span>
                 </a>
            </div>
@@ -51,176 +64,27 @@
            </div>
            <div id="formList">
                 <div class="list-offers" id="list">
+                <?php foreach($listSanPham as $key=>$sanPham): ?>
                      <div class="product item-offer item">
+                        
                           <div class="sale">
                                <span>Giảm 60%</span>
                           </div>
                           <a href="#">
                                <div class="img-product">
-                                    <img src="../public/img/sp22.webp" alt="" />
+                                    <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                </div>
                                <div class="name-product">
-                                    <span>Ổi lê ruột đỏ</span>
+                                   <a href=""><?= $sanPham['ten_san_pham'] ?></a>
                                </div>
                                <div class="price">
-                                    <span class="price-sale">20.000đ</span>
-                                    <span class="price-old"><del>50.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 41%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp2.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Đào đỏ Mỹ</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">40.000đ</span>
-                                    <span class="price-old"><del>60.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 21%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp6.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Chanh vỏ tươi</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">30.000đ</span>
-                                    <span class="price-old"><del>38.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 42%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp5.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Trái cam mật</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">138.000đ</span>
-                                    <span class="price-old"><del>230.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 42%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp3.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Dâu tây</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">138.000đ</span>
-                                    <span class="price-old"><del>230.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
 
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 60%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp7.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Hành tây</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">20.000đ</span>
-                                    <span class="price-old"><del>50.000đ</del></span>
+                               <?php if($sanPham['gia_khuyen_mai']) { ?>
+                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
+                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                    <?php } else { ?>
+                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                        <?php } ?>
                                </div>
                           </a>
                           <div class="button-product">
@@ -236,104 +100,14 @@
                                          </button>
                                     </a>
                                </div>
-                          </div>
-                     </div>
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 21%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp14.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Bông cải xanh</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">30.000đ</span>
-                                    <span class="price-old"><del>38.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 33%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp10.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Cá hồi</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">200.000đ</span>
-                                    <span class="price-old"><del>300.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
-                     <div class="product item-offer item">
-                          <div class="sale">
-                               <span>Giảm 60%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="../public/img/sp17-2.webp" alt="" />
-                               </div>
-                               <div class="name-product">
-                                    <span>Ớt chuông xanh</span>
-                               </div>
-                               <div class="price">
-                                    <span class="price-sale">20.000đ</span>
-                                    <span class="price-old"><del>50.000đ</del></span>
-                               </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
-                               </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                          </div>
-                     </div>
                 </div>
-           </div>
-      </section>
+                </div>
+                               <?php endforeach ?>
+          </section>
+
+
+
+
       <section class="banner-children">
            <div class="banner banner1"></div>
            <div class="banner banner2"></div>
@@ -345,21 +119,27 @@
                 </div>
                 <div class="fruit-product">
                      <div class="list-fruit-product">
+                     <?php foreach($listSanPham as $key=>$sanPham): ?>
                           <div class="product item-offer">
                                <div class="sale">
                                     <span>Giảm 60%</span>
                                </div>
                                <a href="#">
                                     <div class="img-product">
-                                         <img src="../public/img/sp22.webp" alt="" />
+                                         <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                     </div>
                                     <div class="name-product">
-                                         <span>Ổi lê ruột đỏ</span>
+                                    <a href=""><?= $sanPham['ten_san_pham'] ?></a>
                                     </div>
-                                    <div class="price">
-                                         <span class="price-sale">20.000đ</span>
-                                         <span class="price-old"><del>50.000đ</del></span>
-                                    </div>
+                                     <div class="price">
+
+                               <?php if($sanPham['gia_khuyen_mai']) { ?>
+                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
+                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                    <?php } else { ?>
+                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                        <?php } ?>
+                               </div>
                                </a>
                                <div class="button-product">
                                     <div class="button-buy">
@@ -375,155 +155,38 @@
                                          </a>
                                     </div>
                                </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 41%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp2.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Đào đỏ Mỹ</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">40.000đ</span>
-                                         <span class="price-old"><del>60.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 21%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp6.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Chanh vỏ tươi</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">30.000đ</span>
-                                         <span class="price-old"><del>38.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 42%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp5.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Trái cam mật</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">138.000đ</span>
-                                         <span class="price-old"><del>230.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 42%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp3.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Dâu tây</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">138.000đ</span>
-                                         <span class="price-old"><del>230.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                     </div>
-                     <div class="button-fruit">
+                              <div class="button-vegetable">
                           <a href="#"><button>Xem tất cả</button></a>
                      </div>
-                </div>
-           </div>
+                          </div>
+                          <?php endforeach ?>
+                                    </section>
+
+                                    
            <div class="vegetable-category">
                 <div class="vegetable-product">
                      <div class="list-vegetable-product">
+                     <?php foreach($listSanPham as $key=>$sanPham): ?>
                           <div class="product item-offer">
                                <div class="sale">
                                     <span>Giảm 60%</span>
                                </div>
                                <a href="#">
                                     <div class="img-product">
-                                         <img src="../public/img/sp7.webp" alt="" />
+                                    <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                     </div>
                                     <div class="name-product">
-                                         <span>Hành tây</span>
+                                    <a href=""><?= $sanPham['ten_san_pham'] ?></a>
                                     </div>
-                                    <div class="price">
-                                         <span class="price-sale">20.000đ</span>
-                                         <span class="price-old"><del>50.000đ</del></span>
-                                    </div>
+                                     <div class="price">
+
+                               <?php if($sanPham['gia_khuyen_mai']) { ?>
+                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
+                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                    <?php } else { ?>
+                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                        <?php } ?>
+                               </div>
                                </a>
                                <div class="button-product">
                                     <div class="button-buy">
@@ -540,131 +203,9 @@
                                     </div>
                                </div>
                           </div>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 60%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp17-2.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Ớt chuông xanh</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">20.000đ</span>
-                                         <span class="price-old"><del>50.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 21%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp20.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Cà chua</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">30.000đ</span>
-                                         <span class="price-old" hidden><del>38.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 42%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp19.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Ớt chuông vàng</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">20.000đ</span>
-                                         <span class="price-old" hidden><del>50.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 21%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp14.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Bông cải xanh</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">30.000đ</span>
-                                         <span class="price-old"><del>38.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
+                          </div>  
                      </div>
+                     <?php endforeach ?>
                      <div class="button-vegetable">
                           <a href="#"><button>Xem tất cả</button></a>
                      </div>
@@ -672,6 +213,9 @@
                 <div class="banner-vegetable">
                      <span>Rau củ</span>
                 </div>
+
+
+               
            </div>
            <div class="juice-category">
                 <div class="banner-juice">
@@ -679,21 +223,27 @@
                 </div>
                 <div class="juice-product">
                      <div class="list-juice-product">
+                     <?php foreach($listSanPham as $key=>$sanPham): ?>
                           <div class="product item-offer">
                                <div class="sale" hidden>
                                     <span>Giảm 60%</span>
                                </div>
                                <a href="#">
                                     <div class="img-product">
-                                         <img src="../public/img/unnamed (1).jpg" alt="" />
+                                       <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                     </div>
                                     <div class="name-product">
-                                         <span>Nước ép dứa</span>
+                                    <a href=""><?= $sanPham['ten_san_pham'] ?></a>
                                     </div>
                                     <div class="price">
-                                         <span class="price-sale">35.000đ</span>
-                                         <span class="price-old" hidden><del>50.000đ</del></span>
-                                    </div>
+
+                               <?php if($sanPham['gia_khuyen_mai']) { ?>
+                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
+                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                    <?php } else { ?>
+                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                        <?php } ?>
+                               </div>
                                </a>
                                <div class="button-product">
                                     <div class="button-buy">
@@ -710,154 +260,39 @@
                                     </div>
                                </div>
                           </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 41%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/unnamed (2).jpg" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Nước ép bưởi</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">35.000đ</span>
-                                         <span class="price-old" hidden><del>60.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 21%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/unnamed.jpg" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Nước ép nho</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">35.000đ</span>
-                                         <span class="price-old" hidden><del>38.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 42%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/nuoc-ep-ca-chua-nguyen-chat-gaclyco.jpg" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Nước ép cà chua</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">35.000đ</span>
-                                         <span class="price-old" hidden><del>230.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 42%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/nuoc-ep-luu.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Nước ép lựu</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">35.000đ</span>
-                                         <span class="price-old" hidden><del>230.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
                                </div>
                           </div>
                      </div>
-                     <div class="button-juice">
-                          <a href="#"><button>Xem tất cả</button></a>
-                     </div>
+                     <?php endforeach ?>
                 </div>
            </div>
+
+
+
            <div class="meat-category">
                 <div class="meat-product">
                      <div class="list-meat-product">
+                     <?php foreach($listSanPham as $key=>$sanPham): ?>
                           <div class="product item-offer">
                                <div class="sale" hidden>
                                     <span>Giảm 60%</span>
                                </div>
                                <a href="#">
                                     <div class="img-product">
-                                         <img src="../public/img/thi-bo-cube.webp" alt="" />
+                                    <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                     </div>
                                     <div class="name-product">
-                                         <span>Thịt bò Kobe</span>
+                                    <a href=""><?= $sanPham['ten_san_pham'] ?></a>
                                     </div>
                                     <div class="price">
-                                         <span class="price-sale">600.000đ</span>
-                                         <span class="price-old" hidden><del>50.000đ</del></span>
-                                    </div>
+
+                               <?php if($sanPham['gia_khuyen_mai']) { ?>
+                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
+                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                    <?php } else { ?>
+                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                        <?php } ?>
+                               </div>
                                </a>
                                <div class="button-product">
                                     <div class="button-buy">
@@ -874,128 +309,7 @@
                                     </div>
                                </div>
                           </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 60%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/ba-chi-bo.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Ba chỉ bò Mỹ</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">500.000đ</span>
-                                         <span class="price-old" hidden><del>50.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 21%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/suon-lon-bz.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Sườn lơn Brazil</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">200.000đ</span>
-                                         <span class="price-old" hidden><del>38.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 33%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/sp10.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Cá hồi</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">200.000đ</span>
-                                         <span class="price-old"><del>300.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                          </div>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 21%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                         <img src="../public/img/muc-thanh-hoa.webp" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                         <span>Mực Thanh Hóa</span>
-                                    </div>
-                                    <div class="price">
-                                         <span class="price-sale">70.000đ</span>
-                                         <span class="price-old" hidden><del>38.000đ</del></span>
-                                    </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
+                          <?php endforeach ?>
                                </div>
                           </div>
                      </div>
@@ -1007,6 +321,10 @@
                      <span>Thịt tươi</span>
                 </div>
            </div>
+
+
+
+
       </section>
       <div class="banner3"></div>
       <section class="news">
@@ -1099,8 +417,7 @@
            </div>
       </section>
  </main>
- <script src="../public/js/main.js"></script>
-
- <?php include "./footer.php" ?>
+ <script src="public/js/main.js"></script>
+ <?php require_once "./views/footer.php" ?>
 
  </html>

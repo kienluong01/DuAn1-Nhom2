@@ -25,6 +25,7 @@ function deleteSessionErrors()
         unset($_SESSION['flash']);
         unset($_SESSION['errors']);
         unset($_SESSION['thongBao']);
+        unset($_SESSION['thongBaoDN']);
         unset($_SESSION['old_data']);
         unset($_SESSION['success']);
         unset($_SESSION['successTt']);
@@ -34,7 +35,7 @@ function deleteSessionErrors()
         unset($_SESSION['layMk']);
         unset($_SESSION['dat_hang_thanh_cong']);
         session_unset();
-        // session_destroy();
+        session_destroy();
     }
 }
 
