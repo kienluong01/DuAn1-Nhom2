@@ -17,7 +17,8 @@ $act = $_GET['act'] ?? '/';
 
  match ($act) {
     '/' => (new HomeController())->home(), 
-    'contact'=>(new HomeController())->contact(),   
+    'contact'=>(new HomeController())->contact(),  
+    'chi-tiet-san-pham' =>(new HomeController())->chiTietSanPham(),
 
     // GIO HANG
     
@@ -36,5 +37,3 @@ $act = $_GET['act'] ?? '/';
     'sua-anh-tai-khoan' =>(new TaiKhoanController())->suaAnhTaiKhoan(),
     default => 'Action không hợp lệ', // Trường hợp mặc định
 };
-
-

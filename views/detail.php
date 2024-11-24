@@ -1,33 +1,43 @@
-<?php include "./header.php" ?>
+<?php include "header.php" ?>
 <section class="banner-title-detail">
-     <img src="../public/img/bg_breadcrumb.jpg" alt="" />
+     <img src="public/img/bg_breadcrumb.jpg" alt="" />
      <div class="breadcrumb-detail">
           <a href="home.php">Trang chủ</a> >
           <a href="category.php">Sản phẩm</a> >
           <a href="category.php">Đào đỏ Mỹ</a>
      </div>
      <div class="title-detail">
-          <p>ĐĂNG NHẬP TÀI KHOẢN</p>
+          <p>ĐÀO ĐỎ MỸ</p>
      </div>
 </section>
 <div class="container-detail">
      <!-- Thông tin sản phẩm -->
      <div class="product-detail">
           <div class="product-images">
-               <img class="main-image" src="../public/img/sp17-2.webp" alt="" />
+               <img id="mainImage" class="main-image" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                <div class="thumbnail-images">
-                    <img src="../public/img/sp17-2.webp" alt="Thumbnail 1" />
-                    <img src="../public/img/sp17-2.webp" alt="Thumbnail 2" />
-                    <img src="../public/img/sp17-2.webp" alt="Thumbnail 3" />
+                    <?php foreach ($listAnhSanPham as $key => $anhSanPham): ?>
+                         <img src="<?= BASE_URL . $anhSanPham['link_hinh_anh'] ?>" alt=""
+                              onclick="changeImage('<?= BASE_URL . $anhSanPham['link_hinh_anh'] ?>')">
+                    <?php endforeach ?>
                </div>
           </div>
           <div class="product-details">
-               <h1 class="product-title">Đào đỏ Mỹ</h1>
+               <a href=""><?= $sanPham['ten_danh_muc'] ?></a>
+               <h1 class="product-title"><?= $sanPham['ten_san_pham'] ?></h1>
 
                <p class="availability">
-                    Tình trạng: <span>Còn hàng</span>
+                    Tình trạng: <span><?= $sanPham['trang_thai'] == 1 ? 'Còn hàng' : 'Hết hàng'; ?></span>
                </p>
-               <p class="price">100.000đ</p>
+               <p class="price">
+                    <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                         <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                         <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                    <?php } else { ?>
+                         <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                    <?php } ?>
+               </p>
+               <p><?= 'CÒN ' . $sanPham['so_luong'] . " TRONG KHO" ?> </p>
                <div class="quantity">
                     <label for="quantity">Số lượng:</label>
                     <input type="number" id="quantity" min="1" value="1" />
@@ -43,37 +53,93 @@
      <div class="product-description">
           <h2>Mô tả sản phẩm</h2>
           <p>
-               Nho chứa hàm lượng cao chất xơ. Nước nho ép chứa hàng
-               chục chất dinh dưỡng có tác dụng chống ung thư và bệnh
-               tim.
+               <?= $sanPham['mo_ta'] ?>
           </p>
-          <p>
-               Bạn đang cố gắng cải thiện thói quen ăn uống? Chắc chắn
-               bạn phải nghĩ đến việc dự trữ nho đỏ này.
-          </p>
-     </div>
 
+     </div>
+     <div class="comment-section">
+          <h3>Bình Luận Của Khách Hàng</h3>
+          <div class="comment-list" id="commentList">
+               <?php foreach ($listBinhLuan as $binhLuan): ?>
+                    <div class="binhLuan">
+                         <p><span>Khách Hàng - </span><?= $binhLuan['ngay_dang'] ?></p>
+                         <p><?= $binhLuan['noi_dung'] ?></p>
+                    </div>
+                    <hr>
+               <?php endforeach ?>
+          </div>
+          <h3>Phần Bình Luận</h3>
+          <form action="">
+               <div class="comment-input">
+                    <textarea id="commentText" placeholder="Viết bình luận của bạn..."></textarea>
+                    <button onclick="addComment()" type="submit">Gửi bình luận</button>
+               </div>
+          </form>
+
+     </div>
      <!-- Sản phẩm tương tự -->
      <div class="related-products">
           <h2>Sản phẩm tương tự</h2>
           <div class="product-list">
-               <div class="related-item">
-                    <img src="../public/img/sp2.webp" alt="Táo Mỹ" />
+               <?php foreach ($listSanPhamCungDanhMuc as $key => $sanPham): ?>
+                    <div class="product item-offer item">
+                         <div class="sale">
+                              <span>Giảm 60%</span>
+                         </div>
+                         <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>">
+                              <div class="img-product">
+                                   <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
+                              </div>
+                              <div class="name-product">
+                                   <a
+                                        href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>"><?= $sanPham['ten_san_pham'] ?></a>
+                              </div>
+                              <div class="price">
+
+                                   <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                        <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                                        <span
+                                             class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                   <?php } else { ?>
+                                        <span
+                                             class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                   <?php } ?>
+                              </div>
+                         </a>
+                         <div class="button-product">
+                              <div class="button-buy">
+                                   <a href="#">
+                                        <button>Mua ngay</button>
+                                   </a>
+                              </div>
+                              <div class="button-add">
+                                   <a href="#">
+                                        <button>
+                                             <i class="fas fa-cart-plus"></i>
+                                        </button>
+                                   </a>
+                              </div>
+                         </div>
+                    </div>
+               <?php endforeach ?>
+
+               <!-- <div class="related-item">
+                    <img src="public/img/sp2.webp" alt="Táo Mỹ" />
                     <p class="item-name">Táo Mỹ</p>
                     <p class="item-price">300.000đ</p>
                </div>
                <div class="related-item">
-                    <img src="../public/img/sp22.webp" alt="Hạt óc chó" />
+                    <img src="public/img/sp22.webp" alt="Hạt óc chó" />
                     <p class="item-name">Hạt óc chó</p>
                     <p class="item-price">500.000đ</p>
                </div>
                <div class="related-item">
-                    <img src="../public/img/sp5.webp" alt="Táo Rose Mỹ" />
+                    <img src="public/img/sp5.webp" alt="Táo Rose Mỹ" />
                     <p class="item-name">Táo Rose Mỹ</p>
                     <p class="item-price">140.000đ</p>
                </div>
                <div class="related-item">
-                    <img src="../public/img/sp3.webp" alt="Táo xanh nhập khẩu" />
+                    <img src="public/img/sp3.webp" alt="Táo xanh nhập khẩu" />
                     <p class="item-name">Táo xanh nhập khẩu</p>
                     <p class="item-price">45.000đ</p>
                </div>
@@ -81,6 +147,12 @@
      </div>
 </div>
 <?php include 'footer.php' ?>
+<script>
+     function changeImage(imageSrc) {
+          const mainImage = document.getElementById('mainImage');
+          mainImage.src = imageSrc;
+     }
+</script>
 </body>
 </body>
 
