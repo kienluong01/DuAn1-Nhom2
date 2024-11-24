@@ -7,8 +7,11 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
      <link rel="stylesheet" href="../public/css/style.css" />
      <link rel="stylesheet" href="../public/css/contact.css" />
+     <link rel="stylesheet" href="../public/css/category.css">
      <link rel="stylesheet" href="../public/css/pay.css">
+     <link rel="stylesheet" href="../public/css/detail.css">
      <link rel="stylesheet" href="../public/css/cart.css">
+     <link rel="stylesheet" href="../public/css/gt.css">
      <link rel="stylesheet" href="../public/css/login_register.css">
      <link rel="preconnect" href="https://fonts.googleapis.com" />
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,9 +52,9 @@
                <section class="header-menu__control">
                     <ul class="menu-item">
                          <li><a href="home.php">Trang chủ</a></li>
-                         <li><a href="#">Giới thiệu</a></li>
+                         <li><a href="gt.php">Giới thiệu</a></li>
                          <li class="header-product">
-                              <a href="">Sản phẩm</a>
+                              <a href="category.php">Sản phẩm</a>
                               <ul class="submenu">
                                    <li><a href="#">Hoa quả</a></li>
                                    <li><a href="#">Rau củ</a></li>
@@ -60,7 +63,7 @@
                               </ul>
                          </li>
                          <li><a href="contact.php">Liên hệ</a></li>
-                         <li><a href="#">Tin tức</a></li>
+
                     </ul>
                </section>
                <section class="header-search">

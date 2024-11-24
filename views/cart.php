@@ -50,7 +50,9 @@
 
      <!-- Nút hành động -->
      <div class="cart-actions">
-          <button class="continue-shopping">Tiếp tục mua hàng</button>
+          <a href="category.php">
+               <button class="continue-shopping">Tiếp tục mua hàng</button>
+          </a>
           <a href="pay.php">
                <button class="checkout">Đặt hàng ngay</button>
           </a>

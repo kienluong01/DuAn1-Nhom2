@@ -11,6 +11,7 @@
      padding: 0;
      box-sizing: border-box;
      color: var(--text-color);
+     font-size: 1.6rem;
 }
 body {
      width: 190rem;
@@ -224,7 +225,7 @@ html {
      display: block;
      margin-top: 5rem;
 }
-.category-item:hover .title-category {
+.category-item:hover .title-category-home {
      font-weight: 600;
      color: var(--mau-nhan);
      transition: all ease-in-out 0.3s;
@@ -242,7 +243,7 @@ html {
 .category-item:hover .img-category {
      transform: scale(1.1);
 }
-.title-category {
+.title-category-home {
      display: block;
      margin-top: 1.5rem;
      font-size: 2rem;
@@ -278,7 +279,11 @@ html {
      font-size: 4rem;
      font-weight: bold;
 }
+.item-title-offers span {
+     font-size: 3rem;
+}
 .item-title-offers i {
+     font-size: 3rem;
      color: var(--mau-nhan);
 }
 #formList {
@@ -313,10 +318,11 @@ html {
 }
 .product {
      width: 21.8rem;
-     height: 36.4rem;
+     height: 37rem;
      border-radius: 2rem;
      border: 0.1rem solid #00000030;
      text-align: center;
+     /* margin-bottom: 1rem; */
 }
 .sale {
      width: 7rem;
@@ -343,12 +349,14 @@ html {
 }
 .price-sale {
      font-weight: bold;
-     font-size: 1.6rem;
+     font-size: 1.8rem;
      color: var(--sale-color);
      margin-right: 1rem;
 }
-.price-old {
-     font-size: 1.2rem;
+
+.price-old del {
+     font-size: 1.4rem;
+     color: var(--des-color);
 }
 .button-product {
      width: 90%;
@@ -475,7 +483,7 @@ html {
      left: 50%;
      transform: translate(-50%, -50%);
      font-weight: bold;
-     font-size: 12.8rem;
+     font-size: 10rem;
      color: var(--main-color);
 }
 .fruit-product,
@@ -522,7 +530,7 @@ html {
      background: url(../img/Group\ 178.png) no-repeat center/cover;
      margin: 2rem auto;
 }
-.news {
+/* .news {
      width: 90%;
      margin: 5rem auto 7rem auto;
 }
@@ -566,7 +574,7 @@ html {
      -webkit-box-orient: vertical;
      overflow: hidden;
      -webkit-line-clamp: 3;
-}
+} */
 footer {
      margin-top: 15rem;
      width: 100%;

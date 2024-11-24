@@ -12,25 +12,25 @@
            <div class="category-item">
                 <a href="#">
                      <img src="../public/img/cate_4.webp" alt="" class="img-category" />
-                     <span class="title-category">Hoa quả</span>
+                     <span class="title-category-home">Hoa quả</span>
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
                      <img src="../public/img/cate_5.webp" alt="" class="img-category" />
-                     <span class="title-category">Rau củ</span>
+                     <span class="title-category-home">Rau củ</span>
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
                      <img src="../public/img/seafood.webp" alt="" class="img-category" />
-                     <span class="title-category">Thịt tươi sống</span>
+                     <span class="title-category-home">Thịt tươi sống</span>
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
                      <img src="../public/img/cate_6.webp" alt="" class="img-category" />
-                     <span class="title-category">Nước ép</span>
+                     <span class="title-category-home">Nước ép</span>
                 </a>
            </div>
       </section>
@@ -1009,7 +1009,7 @@
            </div>
       </section>
       <div class="banner3"></div>
-      <section class="news">
+      <!-- <section class="news">
            <div class="title-news">
                 <span>TIN TỨC</span>
            </div>
@@ -1097,7 +1097,7 @@
                      </div>
                 </a>
            </div>
-      </section>
+      </section> -->
  </main>
  <script src="../public/js/main.js"></script>
 

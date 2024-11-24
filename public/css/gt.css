@@ -1,0 +1,26 @@
+:root {
+     --main-color: rgb(52, 149, 56);
+     --mau-nhan: rgb(255, 120, 0);
+     --des-color: rgb(101, 101, 101);
+     --text-color: rgb(22, 22, 22);
+     --white-color: #fff;
+     --sale-color: #ff3434;
+}
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     color: var(--text-color);
+     font-size: 1.6rem;
+}
+.content {
+     margin: 5rem auto;
+     max-width: 1000px;
+     text-align: justify;
+}
+.content p {
+     font-size: 1.8rem;
+}
+strong {
+     color: var(--main-color);
+}
