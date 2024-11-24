@@ -4,10 +4,10 @@
      <img src="public/img/bg_breadcrumb.jpg" alt="" />
      <div class="breadcrumb-cart">
           <a href="home.php">Trang chủ</a> >
-          <a href="cart.php">Giỏ hàng</a>
+          <a href="cart.php">Đơn hàng</a>
      </div>
      <div class="title-cart">
-          <p>GIỎ HÀNG</p>
+          <p>Đơn hàng</p>
      </div>
 </section>
 <div class="cart-container">

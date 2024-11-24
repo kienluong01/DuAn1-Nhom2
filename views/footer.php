@@ -34,7 +34,7 @@
           <div class="content-footer">
                <div class="infor">
                     <div class="logo-footer">
-                         <img src="../public/img/Group 177 1.png" alt="" />
+                         <img src="public/img/Group 177 1.png" alt="" />
                     </div>
                     <p>
                          Cửa hàng Thực phẩm sản sạch là một website
@@ -73,7 +73,7 @@
                     </div>
                </div>
                <div class="bgr-footer">
-                    <img src="../public/img/bg_footer_bot.webp" alt="" />
+                    <img src="public/img/bg_footer_bot.webp" alt="" />
                </div>
           </div>
      </section>

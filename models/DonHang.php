@@ -141,20 +141,43 @@ class DonHang{
             echo "LỖI" . $e->getMessage();
         }
     }
-    public function updateTrangThaiDonHang ($donHangid, $trangThaiId) {
+    public function updateTrangThaiDonHang ($donHangid, $trangThaiID) {
         try {
             $sql = "UPDATE don_hangs SET trang_thai_id = :trang_thai_id WHERE id = :id";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
-                ':trang_thai_id  '=> $trangThaiId,
+                ':trang_thai_id'=> $trangThaiID,
                 ':id'             => $donHangid
         ]);
+
             return true;
         } catch(Exception $e){
             echo "LỖI" . $e->getMessage();
         }
     }
+
+    public function getChiTietDonHangId($donHangId) {
+        try {
+            $sql = "SELECT 
+                chi_tiet_don_hangs.*, 
+                san_phams.ten_san_pham, 
+                san_phams.hinh_anh
+                FROM chi_tiet_don_hangs
+                JOIN san_phams ON chi_tiet_don_hangs.san_pham_id = san_phams.id
+                WHERE chi_tiet_don_hangs.don_hang_id = :don_hang_id";
+    
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':don_hang_id'=> $donHangId]);
+    
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        } catch(Exception $e){
+            // Lỗi nếu có
+            echo "LỖI: " . $e->getMessage();
+        }
+    }
+    
 
     
 

@@ -16,7 +16,7 @@
 
       <section class="home-banner">
            <div class="banner">
-                <!-- <img src="../public/img/slider_home.webp" alt="" /> -->
+                <!-- <img src="public/img/slider_home.webp" alt="" /> -->
            </div>
            <button class="button-banner">
                 Mua ngay <i class="fas fa-arrow-right"></i>
@@ -26,25 +26,41 @@
            <div class="category-item">
                 <a href="#">
                      <img src="public/img/cate_4.webp" alt="" class="img-category" />
+
                      <span class="title-category">Hoa quả</span>
+
+                     <span class="title-category-home">Hoa quả</span>
+
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
                      <img src="public/img/cate_5.webp" alt="" class="img-category" />
+
                      <span class="title-category">Rau củ</span>
+
+                     <span class="title-category-home">Rau củ</span>
+
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
                      <img src="public/img/seafood.webp" alt="" class="img-category" />
+
                      <span class="title-category">Thịt tươi sống</span>
+
+                     <span class="title-category-home">Thịt tươi sống</span>
+
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
                      <img src="public/img/cate_6.webp" alt="" class="img-category" />
+
                      <span class="title-category">Nước ép</span>
+
+                     <span class="title-category-home">Nước ép</span>
+
                 </a>
            </div>
       </section>
@@ -71,12 +87,13 @@
                                <div class="sale">
                                     <span>Giảm 60%</span>
                                </div>
-                               <a href="#">
+                               <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>">
                                     <div class="img-product">
                                          <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                     </div>
                                     <div class="name-product">
-                                         <a href=""><?= $sanPham['ten_san_pham'] ?></a>
+                                         <a
+                                              href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>"><?= $sanPham['ten_san_pham'] ?></a>
                                     </div>
                                     <div class="price">
 
@@ -107,9 +124,6 @@
                           </div>
                      <?php endforeach ?>
       </section>
-
-
-
 
       <section class="banner-children">
            <div class="banner banner1"></div>
@@ -335,99 +349,8 @@
  </div>
 
 
-
-
  </section>
  <div class="banner3"></div>
- <!-- <section class="news">
-           <div class="title-news">
-                <span>TIN TỨC</span>
-           </div>
-           <div class="list-news">
-                <a href="#">
-                     <div class="news-item">
-                          <div class="img-news">
-                               <img src="../public/img/untitled-6.webp" alt="" />
-                          </div>
-                          <div class="title-news-item">
-                               <p>
-                                    Rau xanh tăng giá vì trời mưa, người dân
-                                    nội thành lao đao
-                               </p>
-                          </div>
-                          <div class="desc-news-item">
-                               <p class="time">
-                                    Cafein Team | Ngày 28/02/2022
-                               </p>
-                               <br />
-                               <p class="desc">
-                                    Khoảng gần một tuần nay, do ảnh hưởng
-                                    của những cơn mưa lớn kéo dài liên tiếp
-                                    nên nguồn cung rau xanh cho các chợ bắt
-                                    đầu khan hiếm, giá tăng mạnh, thậm chí
-                                    nhiều loại giá tăng gần gấp đôi.
-                               </p>
-                          </div>
-                     </div>
-                </a>
-                <a href="#">
-                     <div class="news-item">
-                          <div class="img-news">
-                               <img src="../public/img/untitled-5.webp" alt="" />
-                          </div>
-                          <div class="title-news-item">
-                               <p>
-                                    Nhập khẩu rau quả vượt mốc 1 tỷ USD,
-                                    Thái Lan chiếm 60% thị phần
-                               </p>
-                          </div>
-                          <div class="desc-news-item">
-                               <p class="time">
-                                    Cafein Team | Ngày 28/02/2022
-                               </p>
-                               <br />
-                               <p class="desc">
-                                    Theo báo cáo từ Bộ NN&PTNT, giá trị xuất
-                                    khẩu hàng rau quả tháng 9 năm 2017 ước
-                                    đạt 294 triệu USD, đưa giá trị xuất khẩu
-                                    hàng rau quả 9 tháng đầu năm 2017 ước
-                                    đạt 2,64 tỷ USD, tăng 44,2% so với cùng
-                                    kỳ năm 2016.
-                               </p>
-                          </div>
-                     </div>
-                </a>
-                <a href="#">
-                     <div class="news-item">
-                          <div class="img-news">
-                               <img src="../public/img/untitled-6.webp" alt="" />
-                          </div>
-                          <div class="title-news-item">
-                               <p>
-                                    Bí quyết bảo quản nho đen trong tủ lạnh
-                                    tươi lâu hơn
-                               </p>
-                          </div>
-                          <div class="desc-news-item">
-                               <p class="time">
-                                    Cafein Team | Ngày 28/02/2022
-                               </p>
-                               <br />
-                               <p class="desc">
-                                    Bí quyết lựa chọn và bảo quản nho tươi –
-                                    Nho rất ngon và tốt cho sức khỏe, tuy
-                                    nhiên nếu không biết cách bảo quản nho
-                                    sẽ không để được lâu hoặc bị hỏng, không
-                                    tốt cho sức khỏe. Hôm nay hãy tìm hiểu
-                                    mẹo vặt lựa chọn và bảo quản nho tươi
-                                    thật lâu mà vẫn giữ được độ tươi ngon
-                                    nhé bạn.
-                               </p>
-                          </div>
-                     </div>
-                </a>
-           </div>
-      </section> -->
  </main>
  <script src="public/js/main.js"></script>
  <?php require_once "./views/footer.php" ?>

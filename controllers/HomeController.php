@@ -8,7 +8,8 @@ class HomeController
     public $modelTaiKhoan;
     public $modelDonHang;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->modelSanPham = new SanPham();
         $this->modelGioHang = new GioHang();
         $this->modelTaiKhoan = new TaiKhoan();
@@ -26,6 +27,7 @@ class HomeController
 
         require_once './views/contact.php';
     }
+
     public function gt(){
         require_once './views/gt.php';
     }
@@ -232,6 +234,41 @@ public function LichSuMuaHang(){
     
 }
 public function ChiTietMuaHang(){
+    if(isset($_SESSION['user_client'])){
+        // LẤY THÔNG TIN TÀI KHOẢN ĐĂNG NHẬP
+    $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
+    $tai_khoan_id = $user['id'];
+
+    // LẤY ID ĐƠN HÀNG TRUYỀN TỪ URL
+    $donHangId = $_GET['id'];
+    // lấy ra danh sách trạng thái đơn hàng
+
+    $arrTrangThaiDonHang = $this->modelDonHang->getTrangThaiDonHang();
+    $trangThaiDonHang = array_column($arrTrangThaiDonHang, 'ten_trang_thai','id');
+   
+
+
+    // lấy ra danh sách phương thức thanh toán
+    $arrPhuongThucThanhToan = $this->modelDonHang-> getPhuongThucThanhToan();
+    $PhuongThucThanhToan = array_column($arrPhuongThucThanhToan, 'ten_phuong_thuc','id');
+
+    // Lấy ra thông tin đơn hàng theo id
+    $donHang = $this->modelDonHang->getDonHangById($donHangId);
+    
+    // lấy thông tin sản phẩm của đơn hàng trong bảng chi tiết đơn hàng
+    $chiTietDonHang = $this->modelDonHang->getChiTietDonHangId($donHangId);
+    // print_r($donHang);
+    // print_r($chiTietDonHang);
+
+    if($donHang['tai_khoan_id'] != $tai_khoan_id){
+        echo"Bạn không có quyền truy cập đơn hàng này";
+    }
+
+    require_once './views/chiTietMuaHang.php';
+
+        }else{
+            var_dump('BẠN CHƯA ĐĂNG NHẬP');die;
+        }
 
 }
 public function HuyDonHang(){
@@ -239,6 +276,7 @@ public function HuyDonHang(){
         // LẤY THÔNG TIN TÀI KHOẢN ĐĂNG NHẬP
     $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
     $tai_khoan_id = $user['id'];
+
     // LẤY ID ĐƠN HÀNG TRUYỀN TỪ URL
     $donHangId = $_GET['id'];
 
@@ -265,5 +303,23 @@ public function HuyDonHang(){
 }
 
 
+
+
+    public function chiTietSanPham()
+    {
+        $id = $_GET['id_san_pham'];
+        $sanPham = $this->modelSanPham->getDetailSanPham($id);
+        $listAnhSanPham = $this->modelSanPham->getListAnhSanPham($id);
+        $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
+        $listSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamDanhMuc($sanPham['danh_muc_id']);
+        // var_dump($listSanPhamCungDanhMuc);
+        die;
+        if ($sanPham) {
+            require_once './views/detail.php';
+        } else {
+            header('location: ' . BASE_URL_ADMIN . '?act=san-pham');
+            exit();
+        }
+    }
 
 }

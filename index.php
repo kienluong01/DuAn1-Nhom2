@@ -18,6 +18,7 @@ require_once './models/DonHang.php';
 $act = $_GET['act'] ?? '/';
 
  match ($act) {
+
     '/'                 => (new HomeController())->home(), 
     'contact'           =>(new HomeController())->contact(),   
     'gt'                =>(new HomeController())->gt(),   
@@ -28,6 +29,10 @@ $act = $_GET['act'] ?? '/';
     'lich-su-mua-hang'  => (new HomeController())->LichSuMuaHang(),
     'chi-tiet-mua-hang' => (new HomeController())->ChiTietMuaHang(),
     'huy-don-hang'      => (new HomeController())->HuyDonHang(),
+    '/' => (new HomeController())->home(), 
+    'contact'=>(new HomeController())->contact(),  
+    'chi-tiet-san-pham' =>(new HomeController())->chiTietSanPham(),
+
 
     
 
@@ -49,5 +54,3 @@ $act = $_GET['act'] ?? '/';
     'sua-anh-tai-khoan' =>(new TaiKhoanController())->suaAnhTaiKhoan(),
     default => 'Action không hợp lệ', // Trường hợp mặc định
 };
-
-
