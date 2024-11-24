@@ -55,11 +55,11 @@
 
         <div class="col-md-8 personal-info">
           <form action="<?= BASE_URL_ADMIN . '?act=sua-thong-tin-ca-nhan-quan-tri' ?>" method="POST">
-            <?php if (isset($_SESSION['successTt'])) { ?>
+            <?php if (isset($_SESSION['thongtin'])) { ?>
               <div class="alert alert-info alert-dismissable">
                 <a href="" class="panel-close close" data-dismiss="alert"></a>
                 <i class="fa fa-coffee"></i>
-                <?= $_SESSION['successTt'] ?>
+                <?= $_SESSION['thongtin'] ?>
               </div>
             <?php } ?>
             <input type="text" name="tai_khoan_id" id="" value="<?= $thongTin['id'] ?>" hidden>
@@ -114,11 +114,11 @@
 
 
           <h3>Đổi mật khẩu</h3>
-          <?php if (isset($_SESSION['successMk'])) { ?>
+          <?php if (isset($_SESSION['success'])) { ?>
             <div class="alert alert-info alert-dismissable">
               <a href="" class="panel-close close" data-dismiss="alert"></a>
               <i class="fa fa-coffee"></i>
-              <?= $_SESSION['successMk'] ?>
+              <?= $_SESSION['success'] ?>
             </div>
           <?php } ?>
           <form action="<?= BASE_URL_ADMIN . '?act=sua-mat-khau-ca-nhan-quan-tri' ?>" method="POST">
@@ -152,7 +152,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label"></label>
               <div class="col-md-12">
-                <input type="submit" class="btn btn-primary" value="Save Changes">
+                <input type="submit" class="btn btn-primary" value="Save Changes" >
               </div>
             </div>
           </form>

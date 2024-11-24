@@ -25,8 +25,9 @@ function deleteSessionErrors()
         unset($_SESSION['flash']);
         unset($_SESSION['errors']);
         unset($_SESSION['thongBao']);
+        unset($_SESSION['thongBaoDN']);
         unset($_SESSION['old_data']);
-        unset($_SESSION['successMk']);
+        unset($_SESSION['success']);
         unset($_SESSION['successTt']);
         unset($_SESSION['successAnh']);
         unset($_SESSION['errorsKH']);
@@ -34,7 +35,7 @@ function deleteSessionErrors()
         unset($_SESSION['layMk']);
         unset($_SESSION['dat_hang_thanh_cong']);
         session_unset();
-        // session_destroy();
+        session_destroy();
     }
 }
 
@@ -80,4 +81,7 @@ function checkLoginAdmin()
         require_once './views/auth/formLogin.php';
         exit();
     }
+}
+function formatPrice($price){
+    return number_format($price, 0, ',', '.');
 }

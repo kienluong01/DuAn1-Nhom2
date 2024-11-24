@@ -249,7 +249,7 @@ class AdminTaiKhoanController
                 $_SESSION['error'] = $user;
                 // var_dump($_SESSION['error']);
                 // die;
-                $_SESSION['falsh'] = true;
+                $_SESSION['falsh'] = true;  
 
                 header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
                 exit();

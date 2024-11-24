@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-6">
-                    <img src="../<?=$khachHang['anh_dai_dien']?>" alt="" style="width: 70%;">
+                    <img src="https://banner2.cleanpng.com/20180516/zq/avcl9cqnd.webp<?=$khachHang['anh_dai_dien']?>" alt="" style="width: 70%;">
                 </div>
 
                
@@ -80,8 +80,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
-                                    <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div>
-                                </div>
+                                    <!-- <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example1"></label></div>
+                                </div> -->
                             </div>
 
                         </div>

@@ -59,7 +59,7 @@ include './views/layout/sidebar.php';
 
                                    <div class="form-group">
                                    <label>Ngày sinh</label>
-                                  <input type="text" class="form-control" name="ngay_sinh" value="<?= $khachHang['ngay_sinh'] ?>" >
+                                  <input type="date" class="form-control" name="ngay_sinh" value="<?= $khachHang['ngay_sinh'] ?>" >
                                    <?php if (isset($_SESSION['errors']['ngay_sinh'])) { ?>
                                     <p class="text-danger"><?= $_SESSION['errors']['ngay_sinh'] ?></p>
                                    <?php } ?>
@@ -75,7 +75,7 @@ include './views/layout/sidebar.php';
 
                                    <div class="form-group">
                                    <label>Địa chỉ</label>
-                                  <input type="date" class="form-control" name="dia_chi" value="<?= $khachHang['dia_chi'] ?>" placeholder="Nhập địa chỉ">
+                                  <input type="text" class="form-control" name="dia_chi" value="<?= $khachHang['dia_chi'] ?>" placeholder="Nhập địa chỉ">
                                    <?php if (isset($_SESSION['errors']['dia_chi'])) { ?>
                                     <p class="text-danger"><?= $_SESSION['errors']['dia_chi'] ?></p>
                                    <?php } ?>

@@ -118,6 +118,7 @@
                throw fetch("/cdn-cgi/zaraz/t"), e;
           };
      </script>
+     <a href ="<?= BASE_URL . '?act=/' ?>">VỀ TRANG CHỦ</a>
 </head>
 
 <body class="hold-transition login-page">

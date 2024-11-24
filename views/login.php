@@ -1,30 +1,34 @@
-<?php include './header.php' ?>
-
+<?php require_once './views/header.php' ?>
 <main>
      <section class="banner-title-login">
-          <img src="../public/img/bg_breadcrumb.jpg" alt="" />
+          <img src="public/img/bg_breadcrumb.jpg" alt="" />
           <div class="breadcrumb-login">
-               <a href="home.php">Trang chủ</a> >
-               <a href="login.php">Đăng nhập tài khoản</a>
+               <a href="<?= BASE_URL . '?act=/' ?>">Trang chủ</a> >
+               <a href="<?=  BASE_URL . '?act=login' ?>">Đăng nhập tài khoản</a>
           </div>
           <div class="title-login">
                <p>ĐĂNG NHẬP TÀI KHOẢN</p>
           </div>
      </section>
      <section class="content-login">
-          <form action="">
+          <form action="<?= BASE_URL . '?act=check-login' ?>" method="post"> 
                <h1>Đăng nhập</h1>
+               <?php if (isset($_SESSION['errors'])) { ?>
+                                <p class="desc-login"><?= $_SESSION['errors'] ?></p>
+                            <?php } else { ?>
+                                <p class="desc-login">Vui lòng đăng nhập</p>
+                            <?php } ?>
                <p class="desc-login">
                     Nếu bạn chưa có tài khoản, đăng kí
-                    <a href="register.php">tại đây</a>
+                    <a href="<?= BASE_URL . '?act=form-dang-ki' ?>">tại đây</a>
                </p>
-               <input type="text" placeholder="Email" /> <br />
-               <input type="text" placeholder="Mật khẩu" />
+               <input type="text" placeholder="Email" name="email" required/> <br />
+               <input type="text" placeholder="Mật khẩu" name="password" required />
                <button type="submit" class="btn-login">
                     Đăng nhập
                </button>
                <div class="forgot-password">
-                    <a href="#">Quên mật khẩu</a>
+                    <a href="<?= BASE_URL . '?act=quen-mat-khau' ?>">Quên mật khẩu</a>
                </div>
                <div class="alternate-login">
                     <p>Đăng nhập bằng cách khác</p>
@@ -39,8 +43,8 @@
                </div>
           </form>
      </section>
+     
 </main>
-<?php include './footer.php' ?>
+<?php require_once './views/footer.php' ?>
 </body>
-
 </html>

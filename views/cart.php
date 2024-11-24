@@ -1,7 +1,7 @@
-<?php include 'header.php' ?>
+<?php require_once './views/header.php' ?>
 
 <section class="banner-title-cart">
-     <img src="../public/img/bg_breadcrumb.jpg" alt="" />
+     <img src="public/img/bg_breadcrumb.jpg" alt="" />
      <div class="breadcrumb-cart">
           <a href="home.php">Trang chủ</a> >
           <a href="cart.php">Giỏ hàng</a>
@@ -16,7 +16,7 @@
      <!-- Sản phẩm 1 -->
      <div class="cart-item">
           <div class="item-info">
-               <img src="../public/img/sp22.webp" alt="Ổi lê ruột đỏ" />
+               <img src="public/img/sp22.webp" alt="Ổi lê ruột đỏ" />
                <div class="details">
                     <h3>Ổi lê ruột đỏ</h3>
                     <p class="price">
@@ -58,7 +58,7 @@
           </a>
      </div>
 </div>
-<?php include 'footer.php' ?>
+<?php require_once './views/footer.php' ?>
 </body>
 
 </html>
