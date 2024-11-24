@@ -51,9 +51,10 @@
 
      <!-- Tổng tiền -->
      <div class="cart-total">
+          <p>Vận chuyển: 30.000đ</p>
      <p>Thành tiền: <span class="total-amount">
           <?php
-          $tong_tien = 0;
+          $tong_tien = 0 ;
           // Duyệt qua mỗi sản phẩm trong giỏ hàng
           foreach($chiTietGioHang as $sanPham) {
                if($sanPham['gia_khuyen_mai']) {
@@ -70,9 +71,11 @@
 
      <!-- Nút hành động -->
      <div class="cart-actions">
-          <button class="continue-shopping">Tiếp tục mua hàng</button>
+          <a href="category.php">
+               <button class="continue-shopping">Tiếp tục mua hàng</button>
+          </a>
           <a href="pay.php">
-               <button class="checkout">Đặt hàng ngay</button>
+              <a href="<?= BASE_URL . '?act=thanh-toan' ?>">Đặt hàng ngay</a>
           </a>
      </div>
 </div>

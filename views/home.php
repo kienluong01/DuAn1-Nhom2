@@ -2,17 +2,18 @@
  <main class="container">
 
 
- <div class="row">
-          <?php if (isset($_SESSION['thongBao'])): ?>
-    <script type="text/javascript">
-        alert("<?php echo $_SESSION['thongBao']; ?>");
-    </script>
-    <?php unset($_SESSION['thongBao']); // Xóa session thongBao sau khi hiển thị ?>
-<?php endif; ?>
-          </div>
- 
+      <div class="row">
+           <?php if (isset($_SESSION['thongBao'])): ?>
+                <script type="text/javascript">
+                     alert("<?php echo $_SESSION['thongBao']; ?>");
+                </script>
+                <?php unset($_SESSION['thongBao']); // Xóa session thongBao sau khi hiển thị 
+                    ?>
+           <?php endif; ?>
+      </div>
 
-       
+
+
       <section class="home-banner">
            <div class="banner">
                 <!-- <img src="../public/img/slider_home.webp" alt="" /> -->
@@ -64,46 +65,48 @@
            </div>
            <div id="formList">
                 <div class="list-offers" id="list">
-                <?php foreach($listSanPham as $key=>$sanPham): ?>
-                     <div class="product item-offer item">
-                        
-                          <div class="sale">
-                               <span>Giảm 60%</span>
-                          </div>
-                          <a href="#">
-                               <div class="img-product">
-                                    <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
-                               </div>
-                               <div class="name-product">
-                                   <a href=""><?= $sanPham['ten_san_pham'] ?></a>
-                               </div>
-                               <div class="price">
+                     <?php foreach ($listSanPham as $key => $sanPham): ?>
+                          <div class="product item-offer item">
 
-                               <?php if($sanPham['gia_khuyen_mai']) { ?>
-                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
-                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                    <?php } else { ?>
-                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                        <?php } ?>
+                               <div class="sale">
+                                    <span>Giảm 60%</span>
                                </div>
-                          </a>
-                          <div class="button-product">
-                               <div class="button-buy">
-                                    <a href="#">
-                                         <button>Mua ngay</button>
-                                    </a>
+                               <a href="#">
+                                    <div class="img-product">
+                                         <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
+                                    </div>
+                                    <div class="name-product">
+                                         <a href=""><?= $sanPham['ten_san_pham'] ?></a>
+                                    </div>
+                                    <div class="price">
+
+                                         <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                              <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                                              <span
+                                                   class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                         <?php } else { ?>
+                                              <span
+                                                   class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                         <?php } ?>
+                                    </div>
+                               </a>
+                               <div class="button-product">
+                                    <div class="button-buy">
+                                         <a href="#">
+                                              <button>Mua ngay</button>
+                                         </a>
+                                    </div>
+                                    <div class="button-add">
+                                         <a href="#">
+                                              <button>
+                                                   <i class="fas fa-cart-plus"></i>
+                                              </button>
+                                         </a>
+                                    </div>
                                </div>
-                               <div class="button-add">
-                                    <a href="#">
-                                         <button>
-                                              <i class="fas fa-cart-plus"></i>
-                                         </button>
-                                    </a>
-                               </div>
-                </div>
-                </div>
-                               <?php endforeach ?>
-          </section>
+                          </div>
+                     <?php endforeach ?>
+      </section>
 
 
 
@@ -119,7 +122,57 @@
                 </div>
                 <div class="fruit-product">
                      <div class="list-fruit-product">
-                     <?php foreach($listSanPham as $key=>$sanPham): ?>
+                          <?php foreach ($listSanPham as $key => $sanPham): ?>
+                               <div class="product item-offer">
+                                    <div class="sale">
+                                         <span>Giảm 60%</span>
+                                    </div>
+                                    <a href="#">
+                                         <div class="img-product">
+                                              <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
+                                         </div>
+                                         <div class="name-product">
+                                              <a href=""><?= $sanPham['ten_san_pham'] ?></a>
+                                         </div>
+                                         <div class="price">
+
+                                              <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                                   <span
+                                                        class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                                                   <span
+                                                        class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                              <?php } else { ?>
+                                                   <span
+                                                        class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                              <?php } ?>
+                                         </div>
+                                    </a>
+                                    <div class="button-product">
+                                         <div class="button-buy">
+                                              <a href="#">
+                                                   <button>Mua ngay</button>
+                                              </a>
+                                         </div>
+                                         <div class="button-add">
+                                              <a href="#">
+                                                   <button>
+                                                        <i class="fas fa-cart-plus"></i>
+                                                   </button>
+                                              </a>
+                                         </div>
+                                    </div>
+                                    <div class="button-vegetable">
+                                         <a href="#"><button>Xem tất cả</button></a>
+                                    </div>
+                               </div>
+                          <?php endforeach ?>
+      </section>
+
+
+      <div class="vegetable-category">
+           <div class="vegetable-product">
+                <div class="list-vegetable-product">
+                     <?php foreach ($listSanPham as $key => $sanPham): ?>
                           <div class="product item-offer">
                                <div class="sale">
                                     <span>Giảm 60%</span>
@@ -129,64 +182,19 @@
                                          <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                     </div>
                                     <div class="name-product">
-                                    <a href=""><?= $sanPham['ten_san_pham'] ?></a>
+                                         <a href=""><?= $sanPham['ten_san_pham'] ?></a>
                                     </div>
-                                     <div class="price">
+                                    <div class="price">
 
-                               <?php if($sanPham['gia_khuyen_mai']) { ?>
-                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
-                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                    <?php } else { ?>
-                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                        <?php } ?>
-                               </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
+                                         <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                              <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                                              <span
+                                                   class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                         <?php } else { ?>
+                                              <span
+                                                   class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                         <?php } ?>
                                     </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
-                               </div>
-                              <div class="button-vegetable">
-                          <a href="#"><button>Xem tất cả</button></a>
-                     </div>
-                          </div>
-                          <?php endforeach ?>
-                                    </section>
-
-                                    
-           <div class="vegetable-category">
-                <div class="vegetable-product">
-                     <div class="list-vegetable-product">
-                     <?php foreach($listSanPham as $key=>$sanPham): ?>
-                          <div class="product item-offer">
-                               <div class="sale">
-                                    <span>Giảm 60%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
-                                    <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
-                                    </div>
-                                    <div class="name-product">
-                                    <a href=""><?= $sanPham['ten_san_pham'] ?></a>
-                                    </div>
-                                     <div class="price">
-
-                               <?php if($sanPham['gia_khuyen_mai']) { ?>
-                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
-                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                    <?php } else { ?>
-                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                        <?php } ?>
-                               </div>
                                </a>
                                <div class="button-product">
                                     <div class="button-buy">
@@ -203,47 +211,49 @@
                                     </div>
                                </div>
                           </div>
-                          </div>  
-                     </div>
-                     <?php endforeach ?>
-                     <div class="button-vegetable">
-                          <a href="#"><button>Xem tất cả</button></a>
-                     </div>
                 </div>
-                <div class="banner-vegetable">
-                     <span>Rau củ</span>
-                </div>
-
-
-               
            </div>
-           <div class="juice-category">
-                <div class="banner-juice">
-                     <span>Nước ép</span>
-                </div>
-                <div class="juice-product">
-                     <div class="list-juice-product">
-                     <?php foreach($listSanPham as $key=>$sanPham): ?>
+      <?php endforeach ?>
+      <div class="button-vegetable">
+           <a href="#"><button>Xem tất cả</button></a>
+      </div>
+      </div>
+      <div class="banner-vegetable">
+           <span>Rau củ</span>
+      </div>
+
+
+
+      </div>
+      <div class="juice-category">
+           <div class="banner-juice">
+                <span>Nước ép</span>
+           </div>
+           <div class="juice-product">
+                <div class="list-juice-product">
+                     <?php foreach ($listSanPham as $key => $sanPham): ?>
                           <div class="product item-offer">
                                <div class="sale" hidden>
                                     <span>Giảm 60%</span>
                                </div>
                                <a href="#">
                                     <div class="img-product">
-                                       <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
+                                         <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                                     </div>
                                     <div class="name-product">
-                                    <a href=""><?= $sanPham['ten_san_pham'] ?></a>
+                                         <a href=""><?= $sanPham['ten_san_pham'] ?></a>
                                     </div>
                                     <div class="price">
 
-                               <?php if($sanPham['gia_khuyen_mai']) { ?>
-                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
-                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                    <?php } else { ?>
-                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                        <?php } ?>
-                               </div>
+                                         <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                              <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                                              <span
+                                                   class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                         <?php } else { ?>
+                                              <span
+                                                   class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                         <?php } ?>
+                                    </div>
                                </a>
                                <div class="button-product">
                                     <div class="button-buy">
@@ -260,74 +270,76 @@
                                     </div>
                                </div>
                           </div>
-                               </div>
-                          </div>
-                     </div>
-                     <?php endforeach ?>
                 </div>
            </div>
+      </div>
+ <?php endforeach ?>
+ </div>
+ </div>
 
 
 
-           <div class="meat-category">
-                <div class="meat-product">
-                     <div class="list-meat-product">
-                     <?php foreach($listSanPham as $key=>$sanPham): ?>
-                          <div class="product item-offer">
-                               <div class="sale" hidden>
-                                    <span>Giảm 60%</span>
-                               </div>
-                               <a href="#">
-                                    <div class="img-product">
+ <div class="meat-category">
+      <div class="meat-product">
+           <div class="list-meat-product">
+                <?php foreach ($listSanPham as $key => $sanPham): ?>
+                     <div class="product item-offer">
+                          <div class="sale" hidden>
+                               <span>Giảm 60%</span>
+                          </div>
+                          <a href="#">
+                               <div class="img-product">
                                     <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
-                                    </div>
-                                    <div class="name-product">
+                               </div>
+                               <div class="name-product">
                                     <a href=""><?= $sanPham['ten_san_pham'] ?></a>
-                                    </div>
-                                    <div class="price">
+                               </div>
+                               <div class="price">
 
-                               <?php if($sanPham['gia_khuyen_mai']) { ?>
-                                    <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']).'đ' ?></span>
-                                    <span class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
+                                    <?php if ($sanPham['gia_khuyen_mai']) { ?>
+                                         <span class="price-sale"><?= formatPrice($sanPham['gia_khuyen_mai']) . 'đ' ?></span>
+                                         <span
+                                              class="price-old"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
                                     <?php } else { ?>
-                                        <span class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']).'đ' ?></del></span>
-                                        <?php } ?>
+                                         <span
+                                              class="price-sale"><del><?= formatPrice($sanPham['gia_san_pham']) . 'đ' ?></del></span>
+                                    <?php } ?>
                                </div>
-                               </a>
-                               <div class="button-product">
-                                    <div class="button-buy">
-                                         <a href="#">
-                                              <button>Mua ngay</button>
-                                         </a>
-                                    </div>
-                                    <div class="button-add">
-                                         <a href="#">
-                                              <button>
-                                                   <i class="fas fa-cart-plus"></i>
-                                              </button>
-                                         </a>
-                                    </div>
+                          </a>
+                          <div class="button-product">
+                               <div class="button-buy">
+                                    <a href="#">
+                                         <button>Mua ngay</button>
+                                    </a>
                                </div>
-                          </div>
-                          <?php endforeach ?>
+                               <div class="button-add">
+                                    <a href="#">
+                                         <button>
+                                              <i class="fas fa-cart-plus"></i>
+                                         </button>
+                                    </a>
                                </div>
                           </div>
                      </div>
-                     <div class="button-meat">
-                          <a href="#"><button>Xem tất cả</button></a>
-                     </div>
-                </div>
-                <div class="banner-meat">
-                     <span>Thịt tươi</span>
-                </div>
+                <?php endforeach ?>
            </div>
+      </div>
+ </div>
+ <div class="button-meat">
+      <a href="#"><button>Xem tất cả</button></a>
+ </div>
+ </div>
+ <div class="banner-meat">
+      <span>Thịt tươi</span>
+ </div>
+ </div>
 
 
 
 
-      </section>
-      <div class="banner3"></div>
-      <section class="news">
+ </section>
+ <div class="banner3"></div>
+ <!-- <section class="news">
            <div class="title-news">
                 <span>TIN TỨC</span>
            </div>
@@ -415,7 +427,7 @@
                      </div>
                 </a>
            </div>
-      </section>
+      </section> -->
  </main>
  <script src="public/js/main.js"></script>
  <?php require_once "./views/footer.php" ?>

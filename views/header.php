@@ -56,6 +56,7 @@
                                                   
                                                   </label>
                                                   <li><a href="<?= BASE_URL .'?act=quan-ly-tai-khoan'?>">Tài khoản</a></li>
+                                                  <li><a href="<?= BASE_URL .'?act=lich-su-mua-hang'?>">Đơn hàng</a></li>
                                                   <li><a href="<?= BASE_URL .'?act=quen-mat-khau'?>">Quên mật khẩu</a></li>
 
                                                   <li><a href="<?= BASE_URL_ADMIN?>">Đăng nhập Admin</a></li>
@@ -69,9 +70,10 @@
                <section class="header-menu__control">
                     <ul class="menu-item">
                          <li><a href="<?= BASE_URL .'?act=/' ?>">Trang chủ</a></li>
-                         <li><a href="#">Giới thiệu</a></li>
+                         <li><a href="<?= BASE_URL . '?act=gt' ?>">Giới thiệu</a></li>
+
                          <li class="header-product">
-                              <a href="">Sản phẩm</a>
+                              <a href="category.php">Sản phẩm</a>
                               <ul class="submenu">
                                    <li><a href="#">Hoa quả</a></li>
                                    <li><a href="#">Rau củ</a></li>
@@ -79,7 +81,10 @@
                                    <li><a href="#">Nước ép</a></li>
                               </ul>
                          </li>
+
+
                          <li><a href="<?= BASE_URL .'?act=contact' ?>">Liên hệ</a></li>
+
 
                     </ul>
                </section>

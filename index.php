@@ -13,14 +13,22 @@ require_once './controllers/TaiKhoanController.php';
 require_once './models/TaiKhoan.php';
 require_once './models/SanPham.php';
 require_once './models/GioHang.php';
+require_once './models/DonHang.php';
 
 $act = $_GET['act'] ?? '/';
 
  match ($act) {
-    '/' => (new HomeController())->home(), 
-    'contact'=>(new HomeController())->contact(),   
-    'them-gio-hang' => (new HomeController())->addGioHang(),
-    'gio-hang' => (new HomeController())->GioHang(),
+    '/'                 => (new HomeController())->home(), 
+    'contact'           =>(new HomeController())->contact(),   
+    'gt'                =>(new HomeController())->gt(),   
+    'them-gio-hang'     => (new HomeController())->addGioHang(),
+    'gio-hang'          => (new HomeController())->GioHang(),
+    'thanh-toan'        => (new HomeController())->thanhToan(),
+    'xu-ly-thanh-toan'  => (new HomeController())->postThanhToan(),
+    'lich-su-mua-hang'  => (new HomeController())->LichSuMuaHang(),
+    'chi-tiet-mua-hang' => (new HomeController())->ChiTietMuaHang(),
+    'huy-don-hang'      => (new HomeController())->HuyDonHang(),
+
     
 
 

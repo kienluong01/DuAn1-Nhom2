@@ -45,7 +45,7 @@ class GioHang
 
     public function addGioHang($id){
         try{
-            $sql = 'INSERT INTO gio_hangs * (tai_khoan_id) VALUES (:id)';
+            $sql = 'INSERT INTO gio_hangs  (tai_khoan_id) VALUES (:id)';
 
             $stmt = $this->conn->prepare($sql);
 
@@ -89,6 +89,35 @@ class GioHang
             echo "LỖI" . $e->getMessage();
         }
     }
+    public function clearDetailGioHang($gioHangId){
+        try{
+            $sql = 'DELETE FROM chi_tiet_gio_hangs WHERE gio_hang_id = :gio_hang_id';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([':gio_hang_id'=>$gioHangId]);
+
+            return true;
+        }catch(Exception $e){
+            echo "LỖI" . $e->getMessage();
+        }
+    }
+    public function clearGioHang($taiKhoanId){
+        try{
+            $sql = 'DELETE FROM chi_tiet_gio_hangs WHERE tai_khoan_id = :tai_khoan_id   ';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([':tai_khoan_id'=>$taiKhoanId]);
+
+            return true;
+        }catch(Exception $e){
+            echo "LỖI" . $e->getMessage();
+        }
+    }
+    
+
+
 
 
 
