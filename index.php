@@ -12,16 +12,21 @@ require_once './controllers/TaiKhoanController.php';
 // Require file models
 require_once './models/TaiKhoan.php';
 require_once './models/SanPham.php';
+require_once './models/GioHang.php';
 
 $act = $_GET['act'] ?? '/';
 
  match ($act) {
     '/' => (new HomeController())->home(), 
     'contact'=>(new HomeController())->contact(),   
-
-    // GIO HANG
+    'them-gio-hang' => (new HomeController())->addGioHang(),
+    'gio-hang' => (new HomeController())->GioHang(),
     
 
+
+
+
+    
     // LOGIN
     'login' => (new TaiKhoanController())->formLogin(), 
     'check-login' => (new TaiKhoanController())->postLogin(), 

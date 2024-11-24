@@ -32,7 +32,7 @@
                     <a href="cart.php">
                          <div class="item header-cart">
                               <i class="fas fa-shopping-cart"></i>
-                              <span>Giỏ hàng</span>
+                             <a href="<?= BASE_URL . '?act=gio-hang' ?>">Giỏ hàng</a>
                          </div>
                     </a>
                     <a href="cart.php">
