@@ -30,6 +30,8 @@
                <div class="quantity">
                     <h1>Ngày đặt <?= $donHang['ngay_dat'] ?></h1>
                     <input type="number" readonly />
+                    <h1>Tổng tiền <?= $donHang['tong_tien'] ?></h1>
+                    <input type="number" readonly />
                  
                </div>
                <a class="remove" href="<?= BASE_URL ?>?act=chi-tiet-mua-hang&id=<?= $donHang['id'] ?>">Chi tiết đơn hàng</a>

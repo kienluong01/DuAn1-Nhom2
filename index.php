@@ -32,14 +32,8 @@ $act = $_GET['act'] ?? '/';
     '/' => (new HomeController())->home(), 
     'contact'=>(new HomeController())->contact(),  
     'chi-tiet-san-pham' =>(new HomeController())->chiTietSanPham(),
+    'xoa-san-pham-gio-hang' =>(new HomeController())->xoaSp(),
 
-
-    
-
-
-
-
-    
     // LOGIN
     'login' => (new TaiKhoanController())->formLogin(), 
     'check-login' => (new TaiKhoanController())->postLogin(), 

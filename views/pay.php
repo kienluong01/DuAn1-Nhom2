@@ -15,8 +15,7 @@
           <div class="order-section">
                <div class="shipping-info">
                <form action="<?= BASE_URL . '?act=xu-ly-thanh-toan' ?>" method="POST">
-                    <h2>Thông tin người nhận</h2>
-                    
+                    <h2>Thông tin người nhận</h2>                    
                          <label for="address">Tên người nhận</label>
                          <input type="text" id="ten_nguoi_nhan" name="ten_nguoi_nhan" value="<?= $user['ho_ten'] ?>" placeholder="Nhập tên người nhận" />
                          <label for="address">Địa chỉ email</label>
@@ -86,7 +85,7 @@
                     <div>
                          <span>Tổng tiền sản phẩm</span>
                          <span><?php
-          $tongGioHang = 30000 ;
+          $tongGioHang = 0 ;
           // Duyệt qua mỗi sản phẩm trong giỏ hàng
           foreach($chiTietGioHang as $sanPham) {
                if($sanPham['gia_khuyen_mai']) {

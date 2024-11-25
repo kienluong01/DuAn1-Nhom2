@@ -39,50 +39,43 @@ class HomeController
 
                 // lấy dữ liệu giỏ hàng người dùng
                 $gioHang = $this->modelGioHang->getGioHangFromUser($mail['id']);
+                // var_dump($gioHang);die;
 
-                if($gioHang){
+                if(!$gioHang){
                     $gioHangId = $this->modelGioHang->addGioHang($mail['id']);
                     $gioHang = ['id'=> $gioHangId];
-                    $chiTietGioHang = $this->modelGioHang->getChiTiet->getDetailGioHang($gioHang['id']);
+                    $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+                    // var_dump($chiTietGioHang);die;
                 }else{
-                    
-                    $chiTietGioHang = $this->modelGioHang->getChiTiet->getDetailGioHang($gioHang['id']);
+                    $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
 
                 }
-                // var_dump($mail['id']);die;
-             
-
-
-                $sanPhamId = $_POST['san_pham_id'];
+                $san_pham_id = $_POST['san_pham_id'];
                 $so_luong = $_POST['so_luong'];
-
+                // var_dump($sanPhamId, $so_luong);die;
                 $checksanPham = false;
 
                 foreach($chiTietGioHang as $detail){
                     if($detail['san_pham_id'] == $san_pham_id){
                         $newSoLuong = $detail['so_luong'] + $so_luong;
-
                         $this->modelGioHang->updateSoLuong($gioHang['id'], $san_pham_id, $newSoLuong);
                         $checksanPham = true;
                         break;
-
                     }
                 }
-                if($checksanPham){
+                if(!$checksanPham){
                     $this->modelGioHang->addDetailGioHang($gioHang['id'],$san_pham_id, $so_luong);
                 }
                 // var_dump('Thêm giỏ hàng thành công');die;
-                header("Location:" . BASE_URL . 'act=gio-hang');
+                header("Location:" . BASE_URL . '?act=gio-hang');
 
 
             }else{
-                var_dump('Chưa đăng nhập');die;
+                header("Location:" . BASE_URL . '?act=login');
             }
-
 
         }   
     }
-
 
     public function gioHang(){
         if(isset($_SESSION['user_client'])){
@@ -133,6 +126,18 @@ class HomeController
         require_once './views/pay.php';
 
     }
+
+    public function xoaSp()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $chi_tiet_gio_hang_id = $_POST['chi_tiet_gio_hang_id'];
+            $xoa = $this->modelGioHang->deleteSanPhamGioHang($chi_tiet_gio_hang_id);
+            // var_dump($xoa);die()
+            header('Location:' . BASE_URL . '?act=gio-hang');
+        }
+    }
+
+    
 
     public function postThanhToan(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -313,7 +318,7 @@ public function HuyDonHang(){
         $listBinhLuan = $this->modelSanPham->getBinhLuanFromSanPham($id);
         $listSanPhamCungDanhMuc = $this->modelSanPham->getListSanPhamDanhMuc($sanPham['danh_muc_id']);
         // var_dump($listSanPhamCungDanhMuc);
-        die;
+        // die;
         if ($sanPham) {
             require_once './views/detail.php';
         } else {

@@ -14,6 +14,7 @@
      <h2>Giỏ hàng của bạn (1 sản phẩm)</h2>
 
      <!-- Sản phẩm 1 -->
+     <form action="<?= BASE_URL . '?act=xoa-san-pham-gio-hang' ?>" method="POST">
      <?php foreach($chiTietGioHang as $key=>$sanPham): ?>
      <div class="cart-item">
           <div class="item-info">
@@ -44,14 +45,16 @@
                     <button class="increase">+</button>
                </div>
                <p class="total-price"><?= formatPrice($sanPham['gia_khuyen_mai'] ? $sanPham['gia_khuyen_mai'] : $sanPham['gia_san_pham']) ?></p>
-               <button class="remove">Xóa</button>
+               <button class="remove" onclick="return confirm('Bạn chắc chắn muốn xóa không')">Xóa</button>
           </div>
+                         
      </div>
-     <?php endforeach ?>
 
+     <?php endforeach ?>
      <!-- Tổng tiền -->
+      </form>
      <div class="cart-total">
-          <p>Vận chuyển: 30.000đ</p>
+       
      <p>Thành tiền: <span class="total-amount">
           <?php
           $tong_tien = 0 ;
@@ -71,7 +74,7 @@
 
      <!-- Nút hành động -->
      <div class="cart-actions">
-          <a href="category.php">
+          <a href="<?= BASE_URL . '?act=/' ?>">
                <button class="continue-shopping">Tiếp tục mua hàng</button>
           </a>
           <a href="pay.php">
