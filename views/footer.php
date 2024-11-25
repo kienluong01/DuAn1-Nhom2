@@ -34,7 +34,9 @@
           <div class="content-footer">
                <div class="infor">
                     <div class="logo-footer">
-                         <img src="public/img/Group 177 1.png" alt="" />
+                         <a href="<?= BASE_URL . '?act=/' ?>">
+                              <img src="public/img/Group 177 1.png" alt="" />
+                         </a>
                     </div>
                     <p>
                          Cửa hàng Thực phẩm sản sạch là một website
@@ -56,8 +58,10 @@
                <div class="about-us">
                     <h2>Về chúng tôi</h2>
                     <div class="about-us-item">
-                         <a href="#">Trang chủ</a><a href="#">Giới thiệu</a><a href="#">Sản phẩm</a><a href="#">Đặt
-                              hàng</a><a href="#">Tin tức</a><a href="#">Liên hệ</a>
+                         <a href="<?= BASE_URL . '?act=/' ?>">Trang chủ</a><a
+                              href="<?= BASE_URL . '?act=gioi-thieu' ?>">Giới thiệu</a><a
+                              href="<?= BASE_URL . '?act=danh-muc-san-pham' ?>">Sản phẩm</a><a href="#">Đặt
+                              hàng</a><a href="<?= BASE_URL . '?act=contact' ?>">Liên hệ</a>
                     </div>
                </div>
                <div class="sp-footer">

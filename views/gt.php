@@ -1,6 +1,6 @@
-<?php include "./header.php" ?>
+<?php include "header.php" ?>
 <section class="banner-title-detail">
-     <img src="../public/img/bg_breadcrumb.jpg" alt="" />
+     <img src="public/img/bg_breadcrumb.jpg" alt="" />
      <div class="breadcrumb-detail">
           <a href="home.php">Trang chủ</a> >
           <a href="gt.php">Giới thiệu</a>

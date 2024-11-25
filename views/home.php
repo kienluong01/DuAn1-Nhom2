@@ -23,13 +23,15 @@
            </button>
       </section>
       <section class="product-category">
-           <div class="category-item">
-                <a href="#">
-                     <img src="public/img/cate_4.webp" alt="" class="img-category" />
-                     <span class="title-category-home">Hoa quả</span>
-                </a>
-           </div>
-           <div class="category-item">
+           <?php foreach ($listDanhMuc as $danhMuc): ?>
+                <div class="category-item">
+                     <a href="<?= BASE_URL . '?act=category&id=' . $danhMuc['id'] ?>">
+                          <img src="public/img/cate_4.webp" alt="" class="img-category" />
+                          <span class="title-category-home"><?= $danhMuc['ten_danh_muc'] ?></span>
+                     </a>
+                </div>
+           <?php endforeach ?>
+           <!-- <div class="category-item">
                 <a href="#">
                      <img src="public/img/cate_5.webp" alt="" class="img-category" />
                      <span class="title-category-home">Rau củ</span>
@@ -46,7 +48,7 @@
                      <img src="public/img/cate_6.webp" alt="" class="img-category" />
                      <span class="title-category-home">Nước ép</span>
                 </a>
-           </div>
+           </div> -->
       </section>
       <section class="offers">
            <div class="direction button-controll-offers">
