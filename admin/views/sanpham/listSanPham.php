@@ -63,7 +63,7 @@ include './views/layout/sidebar.php';
                                                             style="width:100px" alt=""
                                                             onerror="this.onerror=null; this.src='https://img.pikbest.com/wp/202345/cat-dog-pet-and-pets-in-real-pictures-wallpapers_9596134.jpg!bwr800'">
                                                   </td>
-                                                  <td><?= $sanPham['gia_san_pham'] ?></td>
+                                                  <td><?= number_format($sanPham['gia_san_pham'],0,',','.') ?></td>
                                                   <td><?= $sanPham['so_luong'] ?></td>
                                                   <td><?= $sanPham['ten_danh_muc'] ?></td>
                                                   <td><?= $sanPham['trang_thai'] == 1 ? 'Còn hàng' : 'Hết hàng'; ?></td>

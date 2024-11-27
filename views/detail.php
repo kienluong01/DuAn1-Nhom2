@@ -13,6 +13,7 @@
           <div class="product-images">
                <img id="mainImage" class="main-image" src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
                <div class="thumbnail-images">
+
                     <?php foreach ($listAnhSanPham as $key => $anhSanPham): ?>
                          <img src="<?= BASE_URL . $anhSanPham['link_hinh_anh'] ?>" alt=""
                               onclick="changeImage('<?= BASE_URL . $anhSanPham['link_hinh_anh'] ?>')">
@@ -88,7 +89,7 @@
                          </div>
                          <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id_san_pham=' . $sanPham['id'] ?>">
                               <div class="img-product">
-                                   <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" />
+                                   <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="anh_san_pham" />
                               </div>
                               <div class="name-product">
                                    <a
@@ -123,26 +124,6 @@
                     </div>
                <?php endforeach ?>
 
-               <!-- <div class="related-item">
-                    <img src="public/img/sp2.webp" alt="Táo Mỹ" />
-                    <p class="item-name">Táo Mỹ</p>
-                    <p class="item-price">300.000đ</p>
-               </div>
-               <div class="related-item">
-                    <img src="public/img/sp22.webp" alt="Hạt óc chó" />
-                    <p class="item-name">Hạt óc chó</p>
-                    <p class="item-price">500.000đ</p>
-               </div>
-               <div class="related-item">
-                    <img src="public/img/sp5.webp" alt="Táo Rose Mỹ" />
-                    <p class="item-name">Táo Rose Mỹ</p>
-                    <p class="item-price">140.000đ</p>
-               </div>
-               <div class="related-item">
-                    <img src="public/img/sp3.webp" alt="Táo xanh nhập khẩu" />
-                    <p class="item-name">Táo xanh nhập khẩu</p>
-                    <p class="item-price">45.000đ</p>
-               </div>
           </div>
      </div>
 </div>
@@ -153,7 +134,6 @@
           mainImage.src = imageSrc;
      }
 </script>
-</body>
 </body>
 
 </html>

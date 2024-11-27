@@ -87,7 +87,7 @@ if (isset($donHang['trang_thai_id'])) {
                                 Thông tin
                                 <address>
                                     <strong>Mã đơn hàng: <?=$donHang['ma_don_hang'] ?></strong><br>
-                                    Tổng tiền: <?=$donHang['tong_tien'] ?><br>
+                                    Tổng tiền: <?= number_format($donHang['tong_tien'],0,',','.') ?><br>
                                     Ghi chú: <?=$donHang['ghi_chu'] ?><br>
                                     Địa chỉ: <?=$donHang['dia_chi_nguoi_nhan'] ?><br>
                                     Thanh toán: <?=$donHang['ten_phuong_thuc'] ?> <br>
@@ -103,7 +103,7 @@ if (isset($donHang['trang_thai_id'])) {
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>STT</th>
                                             <th>Tên sản phẩm</th>
                                             <th>Đơn giá</th>
                                             <th>Số lượng</th>
@@ -116,9 +116,10 @@ if (isset($donHang['trang_thai_id'])) {
                                         <tr>
                                             <td><?= $key+1?></td>
                                             <td><?= $sanPham['ten_san_pham']?></td>
-                                            <td><?= $sanPham['don_gia']?></td>
+                                  
+                                            <td><?=number_format($sanPham['don_gia'],0,',','.')?></td>
                                             <td><?= $sanPham['so_luong']?></td>
-                                            <td><?= $sanPham['thanh_tien']?></td>
+                                            <td><?=number_format($sanPham['thanh_tien'],0,',','.')?></td>
                                         </tr>
                                         <?php $tong_tien += $sanPham['thanh_tien']; ?>
                                         <?php }?>
@@ -140,15 +141,15 @@ if (isset($donHang['trang_thai_id'])) {
                                     <table class="table">
                                         <tr>
                                             <th style="width:50%">Thành tiền:</th>
-                                            <td><?=$tong_tien?></td>
+                                            <td><?= number_format($tong_tien,0,',','.')?></td>
                                         </tr>
                                         <tr>
                                             <th>Vận chuyển:</th>
-                                            <td>200000</td>
+                                            <td>20.000</td>
                                         </tr>
                                         <tr>
                                             <th>Tổng tiền:</th>
-                                            <td><?=$tong_tien + 200000?></td>
+                                            <td><?=number_format($tong_tien + 20000,0,',','.')?></td>
                                         </tr>
                                     </table>
                                 </div>

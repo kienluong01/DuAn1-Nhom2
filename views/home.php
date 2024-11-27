@@ -16,30 +16,30 @@
 
       <section class="home-banner">
            <div class="banner">
-                <!-- <img src="public/img/slider_home.webp" alt="" /> -->
+               
            </div>
            <button class="button-banner">
                 Mua ngay <i class="fas fa-arrow-right"></i>
            </button>
       </section>
+
+      
       <section class="product-category">
+
            <div class="category-item">
                 <a href="#">
                      <img src="public/img/cate_4.webp" alt="" class="img-category" />
-
-                     <span class="title-category">Hoa quả</span>
-
                      <span class="title-category-home">Hoa quả</span>
-
                 </a>
            </div>
            <div class="category-item">
+
+          
                 <a href="#">
                      <img src="public/img/cate_5.webp" alt="" class="img-category" />
 
-                     <span class="title-category">Rau củ</span>
-
                      <span class="title-category-home">Rau củ</span>
+    
 
                 </a>
            </div>
@@ -47,19 +47,17 @@
                 <a href="#">
                      <img src="public/img/seafood.webp" alt="" class="img-category" />
 
-                     <span class="title-category">Thịt tươi sống</span>
-
                      <span class="title-category-home">Thịt tươi sống</span>
 
+                   
                 </a>
            </div>
            <div class="category-item">
                 <a href="#">
                      <img src="public/img/cate_6.webp" alt="" class="img-category" />
 
-                     <span class="title-category">Nước ép</span>
-
                      <span class="title-category-home">Nước ép</span>
+
 
                 </a>
            </div>
@@ -175,11 +173,11 @@
                                               </a>
                                          </div>
                                     </div>
-                                    <div class="button-vegetable">
-                                         <a href="#"><button>Xem tất cả</button></a>
-                                    </div>
+                                    
+                                    
                                </div>
                           <?php endforeach ?>
+                          
       </section>
 
 
@@ -228,14 +226,11 @@
                 </div>
            </div>
       <?php endforeach ?>
-      <div class="button-vegetable">
-           <a href="#"><button>Xem tất cả</button></a>
-      </div>
+    
       </div>
       <div class="banner-vegetable">
            <span>Rau củ</span>
       </div>
-
 
 
       </div>
@@ -339,9 +334,7 @@
            </div>
       </div>
  </div>
- <div class="button-meat">
-      <a href="#"><button>Xem tất cả</button></a>
- </div>
+
  </div>
  <div class="banner-meat">
       <span>Thịt tươi</span>

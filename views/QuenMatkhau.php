@@ -11,7 +11,7 @@
      </section>
      <section class="content-login">
           <form action="<?= BASE_URL . '?act=lay-mat-khau' ?>" method="post"> 
-               <h1>Đăng nhập</h1>
+               <h1>Quên mật khẩu</h1>
                <?php if (isset($_SESSION['layMk'])) { ?>
                                             <div class="alert alert-info alert-dismissable">
                                                 <a href="" class="panel-close close" data-dismiss="alert"></a>

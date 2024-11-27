@@ -83,4 +83,34 @@ class SanPham
             echo "Error" . $e->getMessage();
         }
     }
+    public function getAllDanhMuc()
+    {
+        try {
+            $sql = 'SELECT * FROM danh_mucs';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\Exception $e) {
+            echo 'Lỗi' . $e->getMessage();
+        }
+    }
+    public function getAllSanPhamDanhMuc($category)
+    {
+        try {
+            $sql = 'SELECT *
+            FROM san_phams
+            WHERE danh_muc_id=:category
+            ';
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->execute([
+                ':category' => $category
+            ]);
+
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "Error" . $e->getMessage();
+        }
+    }
 }

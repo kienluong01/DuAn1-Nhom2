@@ -59,7 +59,7 @@ include './views/layout/sidebar.php';
               <div class="form-group">
                 <label for="gia_san_pham">Giá sản phẩm</label>
                 <input type="number" id="gia_san_pham" name="gia_san_pham" class="form-control"
-                  value="<?= $sanPham['gia_san_pham'] ?>">
+                  value="<?=number_format($sanPham['gia_san_pham'],0,',','.') ?>">
                 <?php if (isset($_SESSION['error']['gia_san_pham'])) { ?>
                   <p class="text-danger"><?php echo $_SESSION['error']['gia_san_pham'] ?></p>
                 <?php
@@ -68,7 +68,7 @@ include './views/layout/sidebar.php';
               <div class="form-group">
                 <label for="gia_khuyen_mai">Giá khuyến mãi sản phẩm</label>
                 <input type="number" id="gia_khuyen_mai" name="gia_khuyen_mai"
-                  class="form-control" value="<?= $sanPham['gia_khuyen_mai'] ?>">
+                  class="form-control" value="<?= number_format($sanPham['gia_khuyen_mai'],0,',','.') ?>">
                 <?php if (isset($_SESSION['error']['gia_khuyen_mai'])) { ?>
                   <p class="text-danger"><?php echo $_SESSION['error']['gia_khuyen_mai'] ?></p>
                 <?php

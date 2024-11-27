@@ -10,6 +10,7 @@
           <p>GIỎ HÀNG</p>
      </div>
 </section>
+
 <div class="cart-container">
      <h2>ĐƠN HÀNG CỦA BẠN</h2>
 
@@ -19,7 +20,7 @@
           <div class="item-info">
                <div class="details">
                 <h3>Mã đơn hàng <?= $donHang['ma_don_hang'] ?></h3>
-                <h3>Trạng thái đơn hàng: <?=  $trangThaiDonHang[$donHang['trang_thai_id']] ?></h3>
+                <a href="">Trạng thái đơn hàng: <?=  $trangThaiDonHang[$donHang['trang_thai_id']] ?></a>
 
                     <div class="weight">
                          <span>Phương thức thanh toán: <?= $PhuongThucThanhToan[$donHang['phuong_thuc_thanh_toan_id']] ?> </span>
@@ -30,7 +31,7 @@
                <div class="quantity">
                     <h1>Ngày đặt <?= $donHang['ngay_dat'] ?></h1>
                     <input type="number" readonly />
-                    <h1>Tổng tiền <?= $donHang['tong_tien'] ?></h1>
+                    <h1>Tổng tiền <?= number_format($donHang['tong_tien'],0,',','.') ?></h1>
                     <input type="number" readonly />
                  
                </div>

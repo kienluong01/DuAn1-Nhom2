@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 // Require file Common
@@ -17,6 +17,7 @@ require_once './models/DonHang.php';
 
 $act = $_GET['act'] ?? '/';
 
+
  match ($act) {
 
     '/'                 => (new HomeController())->home(), 
@@ -33,18 +34,21 @@ $act = $_GET['act'] ?? '/';
     'contact'=>(new HomeController())->contact(),  
     'chi-tiet-san-pham' =>(new HomeController())->chiTietSanPham(),
     'xoa-san-pham-gio-hang' =>(new HomeController())->xoaSp(),
+    'danh_muc' => (new HomeController())->danhMuc(),
+    'danh-muc-san-pham'=>(new HomeController())->danhSachDanhMuc(),
+
 
     // LOGIN
-    'login' => (new TaiKhoanController())->formLogin(), 
-    'check-login' => (new TaiKhoanController())->postLogin(), 
-    'form-dang-ki' =>(new TaiKhoanController())->formDangKy(),
-    'dang-ky' =>(new TaiKhoanController())->dangKy(),
-    'logout' =>(new TaiKhoanController())->logout(),
-    'quen-mat-khau' =>(new TaiKhoanController())->quenMatKhau(),
-    'lay-mat-khau' =>(new TaiKhoanController())->layMatKhau(),
-    'quan-ly-tai-khoan' =>(new TaiKhoanController())->suaTaiKhoan(),
-    'sua-thong-tin-ca-nhan' =>(new TaiKhoanController())->suaThongTinCaNhan(),
-    'sua-mat-khau' =>(new TaiKhoanController())->suaMatKhau(),
-    'sua-anh-tai-khoan' =>(new TaiKhoanController())->suaAnhTaiKhoan(),
+    'login' => (new TaiKhoanController())->formLogin(),
+    'check-login' => (new TaiKhoanController())->postLogin(),
+    'form-dang-ki' => (new TaiKhoanController())->formDangKy(),
+    'dang-ky' => (new TaiKhoanController())->dangKy(),
+    'logout' => (new TaiKhoanController())->logout(),
+    'quen-mat-khau' => (new TaiKhoanController())->quenMatKhau(),
+    'lay-mat-khau' => (new TaiKhoanController())->layMatKhau(),
+    'quan-ly-tai-khoan' => (new TaiKhoanController())->suaTaiKhoan(),
+    'sua-thong-tin-ca-nhan' => (new TaiKhoanController())->suaThongTinCaNhan(),
+    'sua-mat-khau' => (new TaiKhoanController())->suaMatKhau(),
+    'sua-anh-tai-khoan' => (new TaiKhoanController())->suaAnhTaiKhoan(),
     default => 'Action không hợp lệ', // Trường hợp mặc định
 };

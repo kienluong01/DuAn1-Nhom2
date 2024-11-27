@@ -92,7 +92,7 @@ h2 {
      color: var(--main-color);
 }
 
-input[type="text"]:not(:first-of-type),
+#pay input[type="text"],
 textarea,
 .discount > input,
 #address {
@@ -103,7 +103,7 @@ textarea,
      border: 1px solid #ddd;
      border-radius: 0.5rem;
 }
-input[type="text"]:not(:first-of-type) {
+#pay input[type="text"]:not(:first-of-type) {
      height: 4rem;
 }
 input::placeholder,

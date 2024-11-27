@@ -1,7 +1,9 @@
+
 <?php require_once "./views/header.php" ?>
 <main>
 <section class="banner-title-detail">
 <img src="public/img/bg_breadcrumb.jpg" alt="" />
+
      <div class="breadcrumb-detail">
           <a href="<?= BASE_URL . '?act=/' ?> ">Trang chủ</a> 
           <a href="<?= BASE_URL . '?act=gt' ?>">Giới thiệu</a>

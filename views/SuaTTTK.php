@@ -54,7 +54,6 @@
      <section class="content-login">
     <form action="<?= BASE_URL . '?act=sua-mat-khau' ?>" method="post">
         <h1>Đổi Mật Khẩu</h1>
-
         <input type="password" placeholder="Mật khẩu cũ" name="old_pass" /> <br />
         <?php if (isset($_SESSION['errors']['old_pass'])) { ?>
             <p class="text-danger"><?= $_SESSION['errors']['old_pass'] ?></p>

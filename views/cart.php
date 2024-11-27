@@ -14,7 +14,6 @@
      <h2>Giỏ hàng của bạn (1 sản phẩm)</h2>
 
      <!-- Sản phẩm 1 -->
-     <form action="<?= BASE_URL . '?act=xoa-san-pham-gio-hang' ?>" method="POST">
      <?php foreach($chiTietGioHang as $key=>$sanPham): ?>
      <div class="cart-item">
           <div class="item-info">
@@ -44,15 +43,14 @@
                     <input class="quantity-input" type="number" value="<?= $sanPham['so_luong'] ?>" min="1">
                     <button class="increase">+</button>
                </div>
-               <p class="total-price"><?= formatPrice($sanPham['gia_khuyen_mai'] ? $sanPham['gia_khuyen_mai'] : $sanPham['gia_san_pham']) ?></p>
-               <button class="remove" onclick="return confirm('Bạn chắc chắn muốn xóa không')">Xóa</button>
-          </div>
-                         
-     </div>
+               <p class="total-price"><?= formatPrice($sanPham['gia_khuyen_mai'] ? $sanPham['gia_khuyen_mai'] : $sanPham['gia_san_pham']) . 'đ' ?></p>
 
+               <button class="remove" onclick="return confirm('Bạn chắc chắn muốn xóa không')">Xóa</button>
+          </div>              
+     </div>
      <?php endforeach ?>
      <!-- Tổng tiền -->
-      </form>
+     
      <div class="cart-total">
        
      <p>Thành tiền: <span class="total-amount">
@@ -75,51 +73,85 @@
      <!-- Nút hành động -->
      <div class="cart-actions">
           <a href="<?= BASE_URL . '?act=/' ?>">
-               <button class="continue-shopping">Tiếp tục mua hàng</button>
+               <button class="continue-shopping">Về trang chủ để tiếp tục mua hàng</button>
           </a>
-          <a href="pay.php">
-              <a href="<?= BASE_URL . '?act=thanh-toan' ?>">Đặt hàng ngay</a>
+          <a href="<?= BASE_URL . '?act=thanh-toan' ?>">
+          <button class="remove">Đặt hàng ngay</button>
           </a>
      </div>
 </div>
-
-
-
-
-
 <script>
-document.querySelectorAll('.quantity button').forEach(button => {
-    button.addEventListener('click', function() {
-        const cartItem = this.closest('.cart-item');  // Lấy item chứa nút
-        const quantityInput = cartItem.querySelector('.quantity-input');  // Lấy input số lượng
-        const quantity = parseInt(quantityInput.value);  // Lấy số lượng
-        const unitPrice = parseFloat(cartItem.querySelector('.price-sale').getAttribute('data-price'));  // Lấy giá đơn vị từ data-price
+     document.addEventListener('DOMContentLoaded', () => {
+    // Hàm định dạng tiền VND
+    function formatPrice(price) {
+        return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
+    }
 
-        if (this.classList.contains('increase')) {
-            quantityInput.value = quantity + 1;  // Tăng số lượng
-        } else if (this.classList.contains('decrease')) {
-            quantityInput.value = Math.max(1, quantity - 1);  // Giảm số lượng nhưng không nhỏ hơn 1
-        }
+    // Xử lý khi nhấn nút tăng/giảm
+    const cartItems = document.querySelectorAll('.cart-item');
+    cartItems.forEach(item => {
+        const decreaseBtn = item.querySelector('.decrease');
+        const increaseBtn = item.querySelector('.increase');
+        const quantityInput = item.querySelector('.quantity-input');
+        const priceElement = item.querySelector('.price-sale');
+        const totalElement = item.querySelector('.total-price');
 
-        // Cập nhật giá sản phẩm sau khi thay đổi số lượng
-        const totalPrice = unitPrice * parseInt(quantityInput.value);
-        cartItem.querySelector('.total-price').textContent = formatPrice(totalPrice);  // Hiển thị tổng tiền
-        updateTotal();  // Cập nhật tổng giỏ hàng
+        decreaseBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantity--;
+                quantityInput.value = quantity;
+
+                // Cập nhật giá tổng
+                const price = parseInt(priceElement.dataset.price);
+                totalElement.textContent = formatPrice(price * quantity);
+
+                updateCartTotal();
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            quantity++;
+            quantityInput.value = quantity;
+
+            // Cập nhật giá tổng
+            const price = parseInt(priceElement.dataset.price);
+            totalElement.textContent = formatPrice(price * quantity);
+
+            updateCartTotal();
+        });
+
+        quantityInput.addEventListener('change', () => {
+            let quantity = parseInt(quantityInput.value);
+            if (isNaN(quantity) || quantity < 1) {
+                quantity = 1;
+                quantityInput.value = quantity;
+            }
+
+            // Cập nhật giá tổng
+            const price = parseInt(priceElement.dataset.price);
+            totalElement.textContent = formatPrice(price * quantity);
+
+            updateCartTotal();
+        });
     });
+
+    // Hàm cập nhật tổng tiền giỏ hàng
+    function updateCartTotal() {
+        const totalAmountElement = document.querySelector('.total-amount');
+        let total = 0;
+
+        cartItems.forEach(item => {
+            const quantity = parseInt(item.querySelector('.quantity-input').value);
+            const price = parseInt(item.querySelector('.price-sale').dataset.price);
+            total += quantity * price;
+        });
+
+        totalAmountElement.textContent = formatPrice(total);
+    }
 });
 
-function formatPrice(price) {
-    return price.toLocaleString('vi-VN') + 'đ';  // Định dạng giá với dấu phẩy ngàn (ví dụ: 80.000đ)
-}
-
-function updateTotal() {
-    let total = 0;
-    document.querySelectorAll('.cart-item').forEach(item => {
-        const price = parseFloat(item.querySelector('.total-price').textContent.replace('đ', '').replace(',', ''));
-        total += price;  // Cộng dồn các tổng tiền sản phẩm
-    });
-    document.querySelector('.total-amount').textContent = formatPrice(total);  // Cập nhật tổng giỏ hàng
-}
 </script>
 
 <?php require_once './views/footer.php' ?>

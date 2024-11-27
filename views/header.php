@@ -8,7 +8,9 @@
      <link rel="stylesheet" href="public/css/style.css" />
      <link rel="stylesheet" href="public/css/contact.css" />
      <link rel="stylesheet" href="public/css/pay.css">
+     <link rel="stylesheet" href="public/css/category.css">
      <link rel="stylesheet" href="public/css/detail.css">
+     <link rel="stylesheet" href="public/css/gt.css">
      <link rel="stylesheet" href="public/css/cart.css">
      <link rel="stylesheet" href="public/css/login_register.css">
      <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,7 +23,7 @@
      <header>
           <div class="header-top">
                <section class="header-top-logo">
-                    <a href="home.php">
+                    <a href="<?= BASE_URL . '?act=/' ?>">
                          <img src="public/img/Group 177 1.png" alt="" />
                     </a>
                </section>
@@ -38,15 +40,15 @@
                     </a>
                     <a href="cart.php">
                          <div class="item header-cart">
-                              <label for="">
-                                   <?php if (isset($_SESSION['user_client'])) {
+                             <a class="increase">Tài khoản: <?php if (isset($_SESSION['user_client'])) {
                                         echo $_SESSION['user_client'];
-                                   } ?>
+                                   } ?></a> 
+                                  
                          </div>
                     </a>
                     <div class="item header-user">
                          <i class="far fa-user"></i>
-                         <span>Tài khoản</span>
+                         <span> Quản lý tài khoản</span>
                          <ul class="user-submenu">
 
                                <?php
@@ -71,13 +73,14 @@
                <section class="header-menu__control">
                     <ul class="menu-item">
 
+
                          <li><a href="<?= BASE_URL .'?act=/' ?>">Trang chủ</a></li>
                          <li><a href="<?= BASE_URL . '?act=gt' ?>">Giới thiệu</a></li>
 
+
                          <li class="header-product">
-                              <a href="category.php">Sản phẩm</a>
+                              <a href="<?= BASE_URL . '?act=danh-muc-san-pham'?>">Sản phẩm</a>
                               <ul class="submenu">
-                                   <li><a href="#">Hoa quả</a></li>
                                    <li><a href="#">Rau củ</a></li>
                                    <li><a href="#">Hải sản</a></li>
                                    <li><a href="#">Nước ép</a></li>
