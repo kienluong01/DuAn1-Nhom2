@@ -145,11 +145,11 @@ if (isset($donHang['trang_thai_id'])) {
                                         </tr>
                                         <tr>
                                             <th>Vận chuyển:</th>
-                                            <td>20.000</td>
+                                            <td>30.000</td>
                                         </tr>
                                         <tr>
                                             <th>Tổng tiền:</th>
-                                            <td><?=number_format($tong_tien + 20000,0,',','.')?></td>
+                                            <td><?=number_format($tong_tien + 30000,0,',','.')?></td>
                                         </tr>
                                     </table>
                                 </div>

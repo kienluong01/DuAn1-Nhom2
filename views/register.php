@@ -24,7 +24,7 @@
                <h1>Đăng ký</h1>
                <p class="desc-login">
                     Nếu bạn đã có tài khoản, đăng nhập
-                    <a href="login.php">tại đây</a>
+                    <a href="<?= BASE_URL . '?act=login' ?>">tại đây</a>
                </p>
                <input type="text" placeholder="Họ và tên"  id="ho_ten" name="ho_ten" value="<?= isset($_SESSION['old_data']['ho_ten']) ? $_SESSION['old_data']['ho_ten'] : '' ?>" /> <br />
                <?php if (isset($_SESSION['errors']['ho_ten'])) { ?>

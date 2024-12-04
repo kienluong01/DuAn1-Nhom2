@@ -14,10 +14,19 @@
           <form action="<?= BASE_URL . '?act=check-login' ?>" method="post"> 
                <h1>Đăng nhập</h1>
                <?php if (isset($_SESSION['errors'])) { ?>
-                                <p class="desc-login"><?= $_SESSION['errors'] ?></p>
-                            <?php } else { ?>
-                                <p class="desc-login">Vui lòng đăng nhập</p>
-                            <?php } ?>
+    <?php if (is_array($_SESSION['errors'])) { ?>
+        <ul class="desc-login">
+            <?php foreach ($_SESSION['errors'] as $error) { ?>
+                <li><?= htmlspecialchars($error) ?></li>
+            <?php } ?>
+        </ul>
+    <?php } else { ?>
+        <p class="desc-login"><?= htmlspecialchars($_SESSION['errors']) ?></p>
+    <?php } ?>
+<?php } else { ?>
+    <p class="desc-login">Vui lòng đăng nhập</p>
+<?php } ?>
+
                <p class="desc-login">
                     Nếu bạn chưa có tài khoản, đăng kí
                     <a href="<?= BASE_URL . '?act=form-dang-ki' ?>">tại đây</a>

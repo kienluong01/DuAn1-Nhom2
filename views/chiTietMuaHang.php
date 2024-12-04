@@ -36,7 +36,11 @@
          
           </div>
      </div>
+     
 <?php endforeach ?>
+
+
+
 
 </div>
               
@@ -45,6 +49,7 @@
                <div class="shipping-info">
                <h2>Thông tin đơn hàng</h2> 
                <form action="<?= BASE_URL . '?act=xu-ly-thanh-toan' ?>" method="POST">     
+               <label for="">Trạng thái đơn hàng:  <h1>  <?= $trangThaiDonHang[$donHang['trang_thai_id']] ?></h1> </label>
                <label for="">Tên người nhận:  <h1>  <?= $donHang['ten_nguoi_nhan'] ?></h1> </label>
                <label for="">Email:  <h1>  <?= $donHang['email_nguoi_nhan'] ?></h1> </label>
                <label for="">Số điện thoại:  <h1>  <?= $donHang['sdt_nguoi_nhan'] ?></h1> </label>

@@ -51,7 +51,7 @@ include './views/layout/sidebar.php';
                                              <tr>
                                                   <th>STT</th>
                                                   <th>Tên danh mục</th>
-                                                  <th>Mô tả(s)</th>
+                                                  <th>Mô tả</th>
                                                   <th>Thao tác</th>
                                              </tr>
                                         </thead>

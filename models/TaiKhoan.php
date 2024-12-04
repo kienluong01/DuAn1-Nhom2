@@ -39,52 +39,30 @@ class TaiKhoan
             return  false;
         }
     }
-    public function insertTaiKhoan($ho_ten,$email,$so_dien_thoai,$mat_khau,$chuc_vu_id)
-        {
-            try {
-                $sql = "INSERT INTO tai_khoans (ho_ten,email,so_dien_thoai,mat_khau,chuc_vu_id) VALUES (:ho_ten, :email,:so_dien_thoai, :mat_khau,:chuc_vu_id )";
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute(
-                    [
-                        ':ho_ten' => $ho_ten,
-                        ':email' =>$email,
-                        ':so_dien_thoai' =>$so_dien_thoai,
-                        ':mat_khau' =>$mat_khau,
-                        ':chuc_vu_id' =>$chuc_vu_id,
-    
-                    ]
-                );
+    public function insertTaiKhoan($ho_ten, $email, $so_dien_thoai, $mat_khau, $chuc_vu_id)
+{
+    try {
+        // Mã hóa mật khẩu
+        $hashedPassword = password_hash($mat_khau, PASSWORD_DEFAULT);
 
-                return true;
-            } catch (Exception $e) {
-                echo "Lỗi: " . $e->getMessage();
-            }
-        }
-        public function updateMatKhau($id,$mat_khau){
+        $sql = "INSERT INTO tai_khoans (ho_ten, email, so_dien_thoai, mat_khau, chuc_vu_id) 
+                VALUES (:ho_ten, :email, :so_dien_thoai, :mat_khau, :chuc_vu_id)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':ho_ten' => $ho_ten,
+            ':email' => $email,
+            ':so_dien_thoai' => $so_dien_thoai,
+            ':mat_khau' => $hashedPassword, // Lưu mật khẩu đã mã hóa
+            ':chuc_vu_id' => $chuc_vu_id,
+        ]);
 
-            try{
-                $sql = "UPDATE tai_khoans 
-                        SET 
-                        mat_khau = :mat_khau
-                    
-                        WHERE id = :id
-    
-                                            ";
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute(
-                    [
-                        ':mat_khau' => $mat_khau,
-               
-                        ':id' => $id
-                    ]
-                );
-                
-                // Lấy id sản phẩm vừa thêm
-                return true;
-            }catch(Exception $e){
-                echo "Lỗi: ".$e->getMessage();
-            }
-        }
+        return true;
+    } catch (Exception $e) {
+        echo "Lỗi: " . $e->getMessage();
+        return false;
+    }
+}
+
         public function checkEmail($email){
             try{
                 $sql = "SELECT * FROM tai_khoans WHERE email = :email";

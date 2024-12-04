@@ -55,15 +55,11 @@ match ($act) {
 
 
 
-
-
   // route quản lý đơn hàng
   'don-hang' => (new AdminDonHangController())->danhSachDonHang(),
   'chi-tiet-don-hang' => (new AdminDonHangController())->detailDonHang(),
   'form-sua-don-hang' => (new AdminDonHangController())->formEditDonHang(),
   'sua-don-hang' => (new AdminDonHangController())->postEditDonHang(),
-
-
 
 
 

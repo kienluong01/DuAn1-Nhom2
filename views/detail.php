@@ -43,7 +43,7 @@
                <div class="pro-qty"><input type="number" value="1" name="so_luong"></div>
                </div>
                <div class="buttons">
-                    <button class="buy-now">Mua Ngay</button>
+
                     <button class="buy-now">Thêm vào giỏ hàng</button>
                </div>
                </form>
